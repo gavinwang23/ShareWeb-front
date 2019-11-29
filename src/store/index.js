@@ -5,21 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        entryData: true,
-        userName: "",
-        userState: false
+        headerState: false
     },
     mutations: {
-        update(state, updateData) {
-            state.entryData = updateData;
+        headerUp(state) {
+            state.headerState = true;
         },
-        login(state, userName) {
-            state.userState = true;
-            state.userName = userName;
-        },
-        logout(state) {
-            state.userState = false;
-            state.userName = "";
+        headerDown(state) {
+            state.headerState = false;
         }
     },
     actions: {},

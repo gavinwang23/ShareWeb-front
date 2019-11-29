@@ -1,18 +1,12 @@
 <template>
-  <div class="mianBox">
-    <div class="inputBox">
-      <el-input v-model="username" placeholder="用户名" autofocus="true"></el-input>
+  <div class="inputBox">
+    <el-input v-model="username" placeholder="用户名" ></el-input>
+    <el-input v-model="password" placeholder="密码" show-password></el-input>
+    <div class="checkBox">
+      <el-checkbox v-model="checked">记住我</el-checkbox>
     </div>
-    <div class="inputBox">
-      <el-input v-model="password" placeholder="密码" show-password></el-input>
-    </div>
-    <div class="buttomBox">
-      <div class="checkBox">
-        <el-checkbox v-model="checked">记住我</el-checkbox>
-      </div>
-      <div class="forgetPassword">
-        <router-link to>忘记密码</router-link>
-      </div>
+    <div class="forgetPassword">
+      <router-link to>忘记密码</router-link>
     </div>
     <div class="buttonBox">
       <el-button round @click="login()">登入</el-button>
@@ -20,18 +14,15 @@
   </div>
 </template>
 
-
-
 <style lang="scss" scoped>
 @import "../assets/css/components/login.scss";
 </style>
 
 <script>
-import store from "./../store/index";
-import Cookies from 'js-cookie'
-import qs from "qs";
+import QS from "qs";
+import Cookies from "js-cookie";
 export default {
-  data: function() {
+  data() {
     return {
       username: "",
       password: "",
@@ -39,27 +30,29 @@ export default {
     };
   },
   created(){
-    this.username=Cookies.get("userName");
+    if(this.checked == true){
+      this.username = Cookies.get("userName")
+    }
   },
   methods: {
     login() {
-      var username = this.username;
-      var password = this.password;
-      var Parameter = { username: username, password: password };
-      var qsParameter = qs.stringify(Parameter);
-      this.$axios
-        .postWithURL("login", qsParameter)
-        .then(response => {
-          // this.myAlert();
-          this.$store.commit("login",username);
-          Cookies.set("userName",username)
+      let username = this.username;
+      let password = this.password;
+      let params = { username: username, password: password };
+      this.$postWithURL('login',QS.stringify(params))
+      .then(response => {
+        if(response.code == 200){
+          this.$store.commit("login",username)
+          //储存用户名
+          Cookies.set("userName",username,{expires:0.0104}),
           this.action();
-        })
-        .catch(function(error) {
-          console.error(error);
-        });
+        }
+      })
+      .catch(function (error) { // 请求失败处理
+        window.console.error(error);
+      });
     },
-    action() {
+    action(){
       this.$message({
         showClose: true,
         message: "登入成功",
@@ -71,3 +64,4 @@ export default {
   }
 };
 </script>
+

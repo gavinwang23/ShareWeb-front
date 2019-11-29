@@ -1,89 +1,70 @@
 <template>
-  <el-container style="position:absolute; width:100%; height:100%; z-index:-1; left:0; top:0;">
-    <img src="../assets/picture/pic.jpg" />
-    <div class="imgBox"><a class="imghref" href="/"></a></div>
-    <el-header>&nbsp;</el-header>
+  <el-container>
+    <!-- <el-header>
+      <div class="imgBox"></div>
+    </el-header>-->
     <el-main>
-      <el-row type="flex" justify="center">
-        <!-- <el-col :span="8">&nbsp;</el-col> -->
-        <el-col :span="8" >
-          <div class="content" v-if="login">
-            <div class="contentSwitchBox">
-              <div
-                @click="switchBox"
-                class="switchBox leftSwitch"
-                v-bind:class="{loginButton:login}"
-              >
-                <span>登入</span>
-              </div>
-              <div
-                @click="switchBox"
-                class="switchBox rightSwitch"
-                v-bind:class="{registerButton:register}"
-              >
-                <span>注册</span>
-              </div>
-            </div>
-            <login></login>
-          </div>
-          <div class="content" v-if="register">
-            <div class="contentSwitchBox">
-              <div
-                @click="switchBox"
-                class="switchBox leftSwitch"
-                v-bind:class="{loginButton:login}"
-              >
-                <span>登入</span>
-              </div>
-              <div
-                @click="switchBox"
-                class="switchBox rightSwitch"
-                v-bind:class="{registerButton:register}"
-              >
-                <span>注册</span>
-              </div>
-            </div>
-            <register></register>
+      <el-row type="flex" align="middle">
+        <el-col :xs="0" :sm="6" :md="8" :lg="8" :xl="8">
+          <div class="imgBoxContainer">
+            <div class="imgBox"></div>
           </div>
         </el-col>
-        <!-- <el-col :span="8">&nbsp;</el-col> -->
+        <el-col :xs="24" :sm="12" :md="8" :lg="8" :xl="8">
+          <div class="content">
+            <div class="swithBox">
+              <div
+                class="leftSwitch"
+                v-bind:class="{active:switchProperty}"
+                @click="loginFunction()"
+              >登入</div>
+              <div
+                class="rightSwitch"
+                v-bind:class="{active:!switchProperty}"
+                @click="registerFunction()"
+              >注册</div>
+            </div>
+            <div class="inputBox loginBox" v-if="switchProperty">
+              <login></login>
+            </div>
+            <div class="inputBox loginBox" v-if="!switchProperty">
+              <register></register>
+            </div>
+          </div>
+        </el-col>
+        <!-- <el-col :span="8"></el-col> -->
       </el-row>
     </el-main>
   </el-container>
 </template>
-
 <style lang="scss" scoped>
-@import "../assets/css/Entry.scss";
-</style>
+$img: "../assets/picture";
+@import "../assets/css/public.scss";
+@import "../assets/css/entry.scss";
 
+@import url("../assets/css/public.scss");
+// @import url("../assets/scss/entry.scss");
+</style>
 <script>
-import login from "./../components/login.vue";
-import register from "./../components/register.vue";
-import store from "./../store/index";
+import login from "./../components/login";
+import register from "./../components/register";
+// @ is an alias to /src
 export default {
   components: {
     login,
     register
   },
-  created() {
-    // this.register=this.$route.switchParameter.register;
-    // this.login = !this.$store.state.entryData;
-    // this.register = this.$store.state.entryData;\
-    if (this.$route.params.entryData != undefined) {
-      this.register = !this.$route.params.entryData;
-      this.login = this.$route.params.entryData;
-    }
-  },
   data() {
     return {
-      login: true,
-      register: false
+      switchProperty: true
     };
   },
   methods: {
-    switchBox() {
-      this.login = !this.login;
-      this.register = !this.register;
+    loginFunction() {
+      this.switchProperty = true;
+    },
+    registerFunction() {
+      this.switchProperty = false;
     }
   }
 };

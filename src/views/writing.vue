@@ -143,13 +143,10 @@
 
 <script>
 import wangEditor from "../components/wangEditor";
-// import wangEditor2 from '@/pages/wangEditor2.vue'
 import writeArticle from "../views/writeArticle";
 export default {
-  el: "#demo",
   components: {
     wangEditor,
-    // wangEditor2,
     writeArticle
   },
   data() {
