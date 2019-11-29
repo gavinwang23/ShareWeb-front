@@ -11,8 +11,28 @@
 
       <el-main>
         <div id="overview">
-          我的文章
-        </div>
+          <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="我的文章" name="first">
+                <h1>我的文章</h1>
+                <div>
+                  <ul>
+                    <li v-for="i in list" :key="i.title">
+                      <div id>
+                        <a href="">{{i.title}}</a>
+                      </div>
+                      <div>
+                        <h5>{{i.time}}</h5>
+                      </div>
+                      <el-divider></el-divider>
+                    </li>
+                  </ul>
+                </div>
+            </el-tab-pane>
+            <el-tab-pane label="赞过的文章" name="second">配置管理</el-tab-pane>
+            <el-tab-pane label="收藏文章" name="third">角色管理</el-tab-pane>
+            <el-tab-pane label="哈哈哈" name="fourth">定时任务补偿</el-tab-pane>
+          </el-tabs>
+        </div> 
       </el-main>
 
     </el-container>
@@ -21,35 +41,43 @@
 
 <style lang="scss" scoped>
 @import "../assets/css/manager.scss";
+@import "../assets/css/myarticle.scss";
 </style>
 
 <script>
 import myHead from "./../components/header.vue";
 import sideBar from "./../components/sidebar.vue";
+import layout from "./../components/layout.vue";
 export default {
    components: {
       myHead,
       sideBar,
+      layout,
     }, 
     data () {
       return {
-        chartData: {
-          columns: ['日期', '访问用户', '发布文章数量'],
-          rows: [
-            { '日期': '2018-05-22', '访问用户': 32371, '发布文章数量': 19810 },
-            { '日期': '2018-05-23', '访问用户': 12328, '发布文章数量': 4398 },
-            { '日期': '2018-05-24', '访问用户': 92381, '发布文章数量': 52910 }
-          ]
-        },
-        data2:{
-          columns: ['日期', '访问用户', '发布文章数量'],
-          rows: [
-            { '日期': '2018-05-22', '访问用户': 3371, '发布文章数量': 19810 },
-            { '日期': '2018-05-23', '访问用户': 1328, '发布文章数量': 4398 },
-            { '日期': '2018-05-24', '访问用户': 92381, '发布文章数量': 52910 }
-          ]
-        }
+        activeName: 'first',
+        list:[
+          {
+            title: "how to study",
+            time:"2019"
+          },
+          {
+            title: "how to study",
+            time:"2019"
+          },
+          {
+            title: "how to study",
+            time:"2019"
+          },
+        ]
+      }
+    },
+    methods: {
+      handleClick(tab, event) {
+        console.log(tab, event);
       }
     }
+
 }
 </script>>
