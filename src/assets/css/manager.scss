@@ -1,4 +1,4 @@
-.details{
+.details {
     align-self: center;
     height: 50px;
     margin: 20px 0;
@@ -9,10 +9,8 @@
 }
 
 //.el-header{
-    
 //}
-
-#member_lever{
+#member_lever {
     height: 500px;
     background-color: #FFFFFF;
     margin: 20px;
@@ -20,21 +18,24 @@
     border-radius: 13px;
 }
 
-#lever_icon{
+#lever_icon {
     float: left;
     height: 300px;
     width: 300px;
     background-color: salmon;
     margin: 50px;
+    img {
+        width: 100%;
+    }
 }
 
-#lever{
+#lever {
     height: 400px;
     margin: 70px;
     width: 2000px;
 }
 
-#lever_num{
+#lever_num {
     color: #0084ff;
     font-weight: 700;
     float: left;
@@ -43,60 +44,60 @@
     margin-bottom: 50px;
 }
 
-#lever_progress{
+#lever_progress {
     margin-left: 50px;
     width: 1000px;
     float: left;
 }
 
-#overview_main{
+#overview_main {
     border-top: 1px solid #bebebe;
     padding: 30px 0;
     display: flex;
 }
 
-#read_count{
+#read_count {
     flex-grow: 1;
     text-align: center;
     color: #909399;
 }
 
-#read_count_num{
+#read_count_num {
     margin: 15px 0;
     color: black;
 }
 
-#agree_count{
+#agree_count {
     flex-grow: 1;
     text-align: center;
 }
 
-#agree_count_num{
+#agree_count_num {
     margin: 15px 0;
 }
 
-#fans_count{
+#fans_count {
     flex-grow: 1;
     text-align: center;
 }
 
-#fans_count_num{
+#fans_count_num {
     margin: 15px 0;
 }
 
-#overview{
+#overview {
     margin: 20px;
     padding: 20px;
-    border:1px solid #bebebe;
+    border: 1px solid #bebebe;
     background-color: #FFFFFF;
     border-radius: 20px;
 }
 
-#creative_data{
+#creative_data {
     margin: 20px;
     margin-top: 50px;
     padding: 20px;
-    border:1px solid blue;
+    border: 1px solid blue;
     background-color: #FFFFFF;
     border-radius: 20px;
 }
