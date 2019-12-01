@@ -8,7 +8,7 @@
     </div>
     <el-input v-model="username" placeholder="用户名" @blur="loseFocus()"></el-input>
     <el-input v-model="password" placeholder="密码" show-password></el-input>
-    <div class="verifyCodeBox">
+    <div class="verifyCodeBox" :class="{'banButtonAndVerify':banButtonAndVerify}">
       <div class="verifyCodeInputBox">
         <el-input v-model="verifyCode" placeholder="验证码"></el-input>
       </div>
@@ -16,8 +16,8 @@
         <img :src="this.verifyPic" @click="applyVerify" width="100%" />
       </div>
     </div>
-    <div class="buttonBox">
-      <el-button round @click="login()">注册</el-button>
+    <div class="buttonBox" :class="{'banButtonAndVerify':banButtonAndVerify}">
+      <el-button round @click="register()">注册</el-button>
     </div>
   </div>
 </template>
@@ -35,24 +35,49 @@ export default {
     return {
       username: "",
       password: "",
-      verifyCode:"",
+      verifyCode: "",
       verifyPic: "",
       allowUsername: false,
-      notallowUsername: false
+      notallowUsername: false,
+      banButtonAndVerify: false
     };
+  },
+  created() {
+    this.applyVerify();
   },
   methods: {
     //刷新验证码
     applyVerify() {
-      this.verifyPic =
-        "http://192.168.1.129:8888/api/verify_code?" + Math.random();
-      applyVerify();
+      this.verifyPic = "http://localhost:8888/api/verify_code?" + Math.random();
+      if (applyVerify() == false) {
+        this.banButtonAndVerify = true;
+        this.$message({
+          showClose: true,
+          message: "刷新验证码次数过多",
+          type: "warning",
+          duration: 3000
+        });
+        this.reverseTimeRegister();
+      }
+    },
+    //倒计时
+    reverseTimeRegister(){
+      window.console.log(time);
+      var y = time--;
+      if (y > 0) {
+        setTimeout(this.reverseTimeRegister, 1000);
+      }
+       else {
+         time = 3
+         this.banButtonAndVerify = false;
+      }
     },
     //判断用户名是否重复
     loseFocus() {
       var username = this.username;
       if (this.username != "") {
-        this.getWithURL("is_username_duplicated/" + username)
+        this.$axios
+          .getWithURL("is_username_duplicated/" + username)
           .then(response => {
             if (response.data == true) {
               // console.log(response);
@@ -87,7 +112,8 @@ export default {
         password: password //, verifyCode: verifyCode
       };
       var qsParameter = QS.stringify(Parameter);
-      this.postWithURL("sign_up", qsParameter)
+      this.$axios
+        .postWithURL("sign_up", qsParameter)
         .then(function(response) {
           if (response.data == 200) {
             this.action();
@@ -105,18 +131,19 @@ export default {
         type: "success",
         duration: 5000
       });
-      this.reverseTime();
+      this.reverseTimeAction();
     },
     //注册成功跳转倒计时
-    reverseTime() {
+    reverseTimeAction() {
       window.console.log(time);
       var y = time--;
       if (y > 0) {
         setTimeout(this.reverseTime, 1000);
-      } else {
+      }
+       else {
         this.$router.replace({ path: "/" });
       }
-    }
+    },
   }
 };
 </script>

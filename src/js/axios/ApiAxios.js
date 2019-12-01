@@ -16,6 +16,8 @@ const URL = "http://localhost:8888/api/";
 httpService.interceptors.request.use(
     config => {
         config.headers.Authorization = 'Bearer ' + Cookies.get("token");
+        config.data = config.data.params;
+        console.log(config)
         return config;
     },
     error => {

@@ -44,6 +44,8 @@
 </style>
 
 <script>
+// import Cookies from "js-cookie";
+
 import myHeadNav from "./../components/headerNav";
 import myHead from "./../components/header.vue";
 import rotationChart from "./../components/rotationChart.vue";
@@ -54,6 +56,8 @@ export default {
     myHeadNav,
     rotationChart,
     layout
+  },
+  created(){
   },
   data() {
     return {

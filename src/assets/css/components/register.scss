@@ -18,11 +18,16 @@
 .verifyCodeBox {
     .verifyCodeInputBox {
         width: 40%;
+        float: left;
         margin-left: 5%;
     }
     .verifyCodeImgBox {
+        float: right;
+        width: 40%;
+        margin-right: 5%;
         img {
             cursor: pointer;
+            height: 40px;
         }
     }
 }
@@ -40,4 +45,9 @@
     }
     text-align: center;
     padding-top: 5%;
+}
+
+.banButtonAndVerify {
+    cursor: Default;
+    pointer-events: none;
 }

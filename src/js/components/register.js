@@ -1,9 +1,7 @@
 import Cookies from "js-cookie";
 
 export function applyVerify() {
-    window.console.log("函数被调用");
     var nowDate = new Date();
-    window.console.log(Cookies.get("pageCount_1"));
     if (Cookies.get("pageCount_1") == undefined) {
         Cookies.set("pageCount_1", nowDate);
     } else if (Cookies.get("pageCount_2") == undefined) {

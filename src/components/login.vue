@@ -29,7 +29,7 @@ export default {
       checked: true
     };
   },
-  created(){
+  mounted(){
     if(this.checked == true){
       this.username = Cookies.get("userName")
     }
@@ -39,12 +39,13 @@ export default {
       let username = this.username;
       let password = this.password;
       let params = { username: username, password: password };
-      this.$postWithURL('login',QS.stringify(params))
+      this.$axios
+        .postWithURL('login',QS.stringify(params))
       .then(response => {
-        if(response.code == 200){
-          this.$store.commit("login",username)
-          //储存用户名
-          Cookies.set("userName",username,{expires:0.0104}),
+        if(response.data.code == 200){
+          //储存用户名,15分钟过期
+          // Cookies.set("userName",username,{expires:0.0104}),
+          Cookies.set("userName",username),
           this.action();
         }
       })
