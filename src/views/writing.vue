@@ -1,4 +1,5 @@
 <template>
+
   <el-container>
     <div class="el-main">
       <el-row>
@@ -42,7 +43,7 @@
                 </el-menu-item>
                 <el-menu-item index="3">
                   <i class="el-icon"></i>
-                  <span slot="title" @click="show2=true">
+                  <span slot="title" @click="show2=true,C1=false,C2=true">
                     日记本
                     <el-button
                       @click="visible=true"
@@ -103,12 +104,11 @@
               </el-popover>
               <el-button
                 size="small"
-                round
                 @click="dialogVisible = true"
                 class="writing-problem"
                 type="text"
               >遇到问题</el-button>
-              <el-dialog title="常见问题" :visible.sync="dialogVisible" width="30%">
+              <el-dialog title="常见问题" :visible.sync="dialogVisible" :modal-append-to-body="false" width="30%">
                 <span>如果你在使用编辑器的过程中遇到问题，可以尝试以下方案解决：</span>
                 <span slot="footer" class="dialog-footer">
                   <el-button @click="dialogVisible = false">知道了</el-button>
@@ -131,11 +131,11 @@
 </style>
 
 <script>
-import wangEditor2 from '@/views/wangEditor2.vue'
-import writeArticle from '@/views/writeArticle.vue'
+import wangEditor2 from '../views/wangEditor2.vue'
+import writeArticle from '../views/writeArticle.vue'
 export default {
   components : {
-    wangEditor,
+    wangEditor2,
     writeArticle
   },
   data() {
