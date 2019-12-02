@@ -15,8 +15,13 @@ const URL = "http://localhost:8888/api/";
 // request拦截器
 httpService.interceptors.request.use(
     config => {
+        console.log(config)
         config.headers.Authorization = 'Bearer ' + Cookies.get("token");
-        config.data = config.data.params;
+        //使重新赋值仅仅出现在post请求中
+        //post请求的参数为data
+        // if (config.data != null && config.data.requestInterceptors == false) {
+        //     config.data = config.data.params;
+        // }
         console.log(config)
         return config;
     },
@@ -32,6 +37,7 @@ httpService.interceptors.response.use(
     response => {
         if (response.data.token) {
             Cookies.set('token', response.data.token)
+            console.log("储存成功")
         }
         console.log(response)
         return response
@@ -73,7 +79,6 @@ export function getWithURL(url, params = {}) {
                 url: (URL + url),
                 method: 'get',
                 params: params,
-                data: { requestInterceptors: false }
             }).then(response => {
                 resolve(response);
             })
@@ -94,7 +99,7 @@ export function getWithURLWithToken(url, params = {}) {
                 resolve(response);
             })
             .catch(error => {
-                console.error(response);
+                console.error(error);
                 reject(error);
             });
     });
@@ -123,7 +128,8 @@ export function postWithURL(url, params) {
         httpService({
             url: (URL + url),
             method: 'post',
-            data: { params, requestInterceptors: false }
+            data: params,
+            // data: { params, requestInterceptors: false }
         }).then(response => {
             resolve(response);
         }).catch(error => {
@@ -138,9 +144,7 @@ export function postWithURLWithToken(url, params) {
         httpService({
             url: (URL + url),
             method: 'post',
-            data: {
-                params
-            },
+            data: params,
 
         }).then(response => {
             resolve(response);

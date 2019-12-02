@@ -5,7 +5,7 @@
       <!-- @select="handleSelect" -->
       <router-link to="/" class="navElement">
         <el-menu-item index="0">
-          <img src="../assets/picture/logo.png" height="20px;" />
+          <img src="../../assets/picture/logo.png" height="20px;" />
         </el-menu-item>
       </router-link>
       <router-link to="/" class="navElement">
@@ -77,7 +77,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/css/components/header.scss";
+@import "../../assets/css/components/header/header.scss";
 </style>
 
 <script>

@@ -46,8 +46,8 @@
 <script>
 // import Cookies from "js-cookie";
 
-import myHeadNav from "./../components/headerNav";
-import myHead from "./../components/header.vue";
+import myHeadNav from "./../components/header/header.vue";
+import myHead from "./../components/header/headerNav.vue";
 import rotationChart from "./../components/rotationChart.vue";
 import layout from "./../components/layout.vue";
 export default {

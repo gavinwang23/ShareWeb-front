@@ -46,7 +46,7 @@ $img: "../assets/picture";
 // @import url("../assets/scss/entry.scss");
 </style>
 <script>
-import login from "./../components/login";
+import login from "./../components/login/login";
 import register from "./../components/register";
 // @ is an alias to /src
 export default {

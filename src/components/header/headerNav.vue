@@ -19,7 +19,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/css/components/headerNav.scss";
+@import "../../assets/css/components/header/headerNav.scss";
 </style>
 
 <script>

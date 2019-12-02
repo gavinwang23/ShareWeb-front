@@ -62,7 +62,7 @@
 </style>
 
 <script>
-  import myHead from "./../components/header.vue";
+  import myHead from "./../components/header/header.vue";
   import sideBar from "./../components/sidebar.vue";
   export default {
     components: {

@@ -65,7 +65,7 @@
 </style>
 
 <script>
-import myHead from "./../components/header.vue";
+import myHead from "./../components/header/header.vue";
 export default {
    components: {
       myHead,
