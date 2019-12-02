@@ -38,11 +38,9 @@ export default {
     login() {
       let username = this.username;
       let password = this.password;
-      // let params = { username: username, password: password };
-      let params2 ="username="+username+"&password="+password+""
+      let params = { username: username, password: password };
       this.$axios
-        // .postWithURL('login',QS.stringify(params))
-        .postWithURL('login',params2)
+        .postWithURL('login',QS.stringify(params))
       .then(response => {
         if(response.data.code == 200){
           //储存用户名,15分钟过期
