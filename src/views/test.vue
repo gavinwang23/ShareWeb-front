@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <el-button round @click="test()"></el-button>
+    <!-- 测试index接口 -->
+    <el-button round @click="testIndex()"></el-button>
   </div>
 </template>
 
@@ -30,6 +32,13 @@ export default {
           for (i = 0; i < response.data.corpus.length; i++) {
             console.log(response.data.corpus[i]);
           }
+        })
+        .catch(error => {});
+    },
+    testIndex(){
+      this.$axios
+        .getWithURLWithToken("index/index_info/get")
+        .then(response => {
         })
         .catch(error => {});
     }
