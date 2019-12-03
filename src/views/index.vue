@@ -1,24 +1,37 @@
-<template>
-  <el-container>
-    <el-header>
-      <myHead></myHead>
+<template >
+  <el-container >
+    <el-header style="background-color: white;">
+      <div class="headerBox">
+        <transition name="slide-fade">
+          <div class="fixed" v-if="show" key="myHeadNav">
+            <myHeadNav></myHeadNav>
+          </div>
+          <div class="fixed" v-else key="myHead">
+            <myHead></myHead>
+          </div>
+        </transition>
+        <!-- <transition name="slide-fade" mode="out-in">
+        </transition>-->
+      </div>
     </el-header>
     <el-container>
       <el-main>
         <el-row>
           <el-col :span="1">&nbsp;</el-col>
           <!-- 开始中间的正文内容 -->
-          <el-col :span="22">
-            <div class="mainBox">
-              <div class="rotationChartBox">
-                <rotationChart></rotationChart>
-              </div>
-              <div class="layoutBox">
-                <layout></layout>
-              </div>
+          <el-col :span="22" class="mainBox">
+            <div class="rotationChartBox">
+              <rotationChart></rotationChart>
             </div>
           </el-col>
           <el-col :span="1"></el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24">
+            <div class="layoutBox">
+              <layout></layout>
+            </div>
+          </el-col>
         </el-row>
       </el-main>
       <el-footer></el-footer>
@@ -31,17 +44,24 @@
 </style>
 
 <script>
-import myHead from "./../components/header.vue";
+// import Cookies from "js-cookie";
+
+import myHeadNav from "./../components/header/header.vue";
+import myHead from "./../components/header/headerNav.vue";
 import rotationChart from "./../components/rotationChart.vue";
 import layout from "./../components/layout.vue";
 export default {
   components: {
     myHead,
+    myHeadNav,
     rotationChart,
-    layout,
+    layout
+  },
+  created(){
   },
   data() {
     return {
+      show: false,
       list: [
         {
           title: "How to study Vue",
@@ -54,6 +74,19 @@ export default {
       ]
     };
   },
-  methods: {}
+  methods: {
+  },
+  //负责调整header状态
+  //computed和watch中的函数名必须相同，前者返回的值会作为参数传递到后者的对应方法中。
+  computed: {
+    headerChange() {
+      return this.$store.state.headerState;
+    }
+  },
+  watch: {
+    headerChange(val) {
+      this.show = val
+    }
+  },
 };
 </script>

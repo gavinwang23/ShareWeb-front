@@ -1,77 +1,58 @@
-.el-container {
-    img {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    }
-    .imgBox {
-        position: absolute;
-        top: 10%;
-        left: 10%;
-        background: url(../assets/picture/logo.png);
-        background-size: 100% 100%;
-        width: 20%;
-        height: 10%;
-    }
+.el-col {
+    height: 100%;
 }
 
-//他日必有用
-// .imghref {
-//     display: inline-block;
-//     width: 100%;
-//     height: 100%;
-//     position: absolute;
-//     z-index: 1;
-// }
-.el-col-8 {
-    border: {
-        wdith: 1rem;
-        color: black;
-    }
-    margin-top:3%;
-    padding: {
-        top: 3%;
-        bottom: 3%;
-    }
-    background-image: radial-gradient(rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0));
+.el-main {
+    padding: 1%;
+}
+
+.imgBoxContainer {
+    height: 100%;
+}
+
+.imgBox {
+    width: 50%;
+    background: url('#{$img}/logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
 }
 
 .content {
-    .contentSwitchBox {
-        padding: 0 0 5% 0;
-        width: 60%;
-        margin: 0 auto;
-        height: 50px;
-    }
-    .switchBox {
-        margin: 0 auto;
-        padding: 2.5% 3%;
-        &:hover {
-            border-bottom: 0.15rem solid #CD5C5C;
-            cursor: pointer;
-        }
-    }
-    .leftSwitch {
-        margin: 0 0 0 20%;
-        float: left;
-    }
-    .rightSwitch {
-        margin: 0 20% 0 0;
-        float: right;
-    }
-    font: {
-        size: 1.3rem;
-    }
-    margin: {
-        top: 5%;
-        bottom: 5%;
-    }
+    margin-top: 20%;
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: white;
+    // height: 50%;
+    border-radius: 3%;
 }
 
-.loginButton {
-    border-bottom: 0.15rem solid #CD5C5C;
+.active {
+    border-bottom: 1px #1E90FF solid;
+    color: #1E90FF;
 }
 
-.registerButton {
-    border-bottom: 0.15rem solid #CD5C5C;
+.swithBox {
+    font-size: 100%;
+    overflow: auto;
+}
+
+.leftSwitch {
+    float: left;
+    margin-left: 25%;
+    padding: 3% 5%;
+    cursor: pointer;
+}
+
+.rightSwitch {
+    float: right;
+    margin-right: 25%;
+    padding: 3% 5%;
+    cursor: pointer;
+}
+
+.inputBox {
+    margin: 5% auto 0;
+    width: 80%;
 }

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
+import router from './router/router'
+import store from './store/store'
 import './plugins/element.js'
 //下面是自己添加的
 import axios from './js/axios/ApiAxios'

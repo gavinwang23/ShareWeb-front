@@ -1,3 +1,7 @@
+.el-row {
+    height: 400px;
+}
+
 .ulBox {
     ul {
         margin: 0.5rem 0 0 0;
@@ -17,4 +21,21 @@
 
 .rotationChartBox {
     width: 70%;
+}
+
+//动画效果
+.slide-fade-enter-active {
+    transition: all 1s;
+}
+
+// .slide-fade-leave-active {
+//     transition: all 1s;
+// }
+.slide-fade-enter,
+.slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */
+
+{
+    transform: translateY(5px);
+    opacity: 0;
 }

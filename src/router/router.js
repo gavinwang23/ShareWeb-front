@@ -90,6 +90,13 @@ const routes = [{
         component: () =>
             import ("../views/myArticle.vue")
     },
+    {
+        path: '/forget_password',
+        name: 'forget_password',
+        component: () =>
+            import ("../views/forgetPassword.vue")
+    },
+
 ]
 
 const router = new VueRouter({

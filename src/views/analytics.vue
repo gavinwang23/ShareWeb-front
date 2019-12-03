@@ -29,7 +29,7 @@
 </style>
 
 <script>
-import myHead from "../components/header";
+import myHead from "../components/header/header";
 import sideBar from "../components/sidebar";
 export default {
    components: {

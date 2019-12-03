@@ -68,7 +68,7 @@
 <style lang="scss" scoped>
 @import "../assets/css/manager.scss";
 @import "../assets/css/account.scss";
-@import "../assets/css/components/header.scss"
+@import "../assets/css/components/header/header.scss"
 </style>
 
 <style>
@@ -98,7 +98,7 @@
 </style>
 <script>
 import Cookies from "js-cookie";
-import myHead from "./../components/header.vue";
+import myHead from "./../components/header/header.vue";
 import sideBar from "./../components/sidebar.vue";
 export default {
   components: {

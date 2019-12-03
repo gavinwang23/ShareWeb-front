@@ -1,70 +1,53 @@
-.mianBox {
-    padding-top: 5%;
+.inputBox {
     position: relative;
-    .inputIcon {
-        position: absolute;
-        right: 14%;
-        top: 18%;
-        display: none;
-    }
+}
+
+.iconBox {
+    position: absolute;
+    right: -10%;
+    top: 5%;
+    z-index: 1;
     .el-icon-error {
         color: red;
     }
     .el-icon-success {
-        color: rgb(18, 219, 18);
+        color: #32CD32;
     }
-    .display_inline {
-        display: inline-block;
-    }
-    .inputBox {
-        width: 60%;
-        margin: 0 auto;
-    }
-    .checkBox {
-        padding: {
-            top: 2%;
-            left: 25%;
-        }
-    }
-    .verifyBox {
+}
+
+.verifyCodeBox {
+    .verifyCodeInputBox {
         width: 40%;
-        margin: 0 auto;
-        .verifyInputBox {
-            float: left;
-            margin: 0 auto;
-            width: 40%;
-        }
-        .imgBox {
-            float: right;
-            width: 40%;
-            height: 115px;
-            .loseHref {
-                cursor: pointer;
-                pointer-events: none;
-            }
+        float: left;
+        margin-left: 5%;
+    }
+    .verifyCodeImgBox {
+        float: right;
+        width: 40%;
+        margin-right: 5%;
+        img {
+            cursor: pointer;
+            height: 40px;
         }
     }
-    .buttonBox {
-        margin: {
-            top: 3%;
-            left: 30%;
-            right: 30%;
-        }
-        .el-button {
-            font-size: 1.2rem;
-            width: 100%;
-            color: #8B4726;
-            background-color: #9370DB;
-            &:hover {
-                color: white;
-            }
-        }
-        .loseButton {
-            color: #fff;
-            background-color: #b3e19d;
-            border-color: #b3e19d;
-            /* cursor: not-allowed; */
-            pointer-events: none;
+}
+
+.buttonBox {
+    clear: both;
+    .el-button {
+        width: 60%;
+        font-size: 100%;
+        color: white;
+        background-color: #32CD32;
+        &:hover {
+            background-color: #228B22;
         }
     }
+    text-align: center;
+    padding-top: 5%;
+}
+
+.banButtonAndVerify {
+    cursor: Default;
+    pointer-events: none;
 }
