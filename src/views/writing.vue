@@ -108,13 +108,13 @@
                 class="writing-problem"
                 type="text"
               >遇到问题</el-button>
-              <el-dialog title="常见问题" :visible.sync="dialogVisible" :modal-append-to-body="false" width="30%">
+            </div>
+            <el-dialog title="常见问题" :visible.sync="dialogVisible" :modal-append-to-body="false" width="30%" >
                 <span>如果你在使用编辑器的过程中遇到问题，可以尝试以下方案解决：</span>
                 <span slot="footer" class="dialog-footer">
                   <el-button @click="dialogVisible = false">知道了</el-button>
                 </span>
               </el-dialog>
-            </div>
           </div>
         </el-col>
         <el-col :span="20">
