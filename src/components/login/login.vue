@@ -6,7 +6,7 @@
       <el-checkbox v-model="checked">记住我</el-checkbox>
     </div>
     <div class="forgetPassword">
-      <router-link to>忘记密码</router-link>
+      <router-link to="forget_password">忘记密码</router-link>
     </div>
     <div class="buttonBox">
       <el-button round @click="login()">登入</el-button>
