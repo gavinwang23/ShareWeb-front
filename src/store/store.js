@@ -5,14 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        headerState: false
+        headerState: true
     },
     mutations: {
         headerUp(state) {
-            state.headerState = true;
+            state.headerState = false;
         },
         headerDown(state) {
-            state.headerState = false;
+            state.headerState = true;
         }
     },
     actions: {},

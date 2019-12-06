@@ -1,17 +1,15 @@
 <template >
-  <el-container >
+  <el-container>
     <el-header style="background-color: white;">
       <div class="headerBox">
         <transition name="slide-fade">
           <div class="fixed" v-if="show" key="myHeadNav">
             <myHeadNav></myHeadNav>
           </div>
-          <div class="fixed" v-else key="myHead">
+          <div class="fixed" v-if="!show" key="myHead">
             <myHead></myHead>
           </div>
         </transition>
-        <!-- <transition name="slide-fade" mode="out-in">
-        </transition>-->
       </div>
     </el-header>
     <el-container>
@@ -57,8 +55,7 @@ export default {
     rotationChart,
     layout
   },
-  created(){
-  },
+  created() {},
   data() {
     return {
       show: false,
@@ -74,8 +71,7 @@ export default {
       ]
     };
   },
-  methods: {
-  },
+  methods: {},
   //负责调整header状态
   //computed和watch中的函数名必须相同，前者返回的值会作为参数传递到后者的对应方法中。
   computed: {
@@ -85,8 +81,8 @@ export default {
   },
   watch: {
     headerChange(val) {
-      this.show = val
+      this.show = val;
     }
-  },
+  }
 };
 </script>
