@@ -59,6 +59,9 @@ export default {
       switchProperty: true
     };
   },
+  created(){
+    this.switchProperty = this.$route.params.entryData;
+  },
   methods: {
     loginFunction() {
       this.switchProperty = true;
