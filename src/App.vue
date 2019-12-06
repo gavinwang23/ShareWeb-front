@@ -14,6 +14,7 @@
 export default {
   methods:{
     test(e) {
+      /* 组件渐变效果相关代码 
       if (e.deltaY > 0) {
         //设置组件a消失，组件b出现
         this.$store.commit("headerUp")
@@ -23,6 +24,7 @@ export default {
       }
       //测试滚轮事件是否能执行
       // window.console.log(e.deltaY);
+      */
     }
   }
 }

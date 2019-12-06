@@ -8,6 +8,7 @@ export default new Vuex.Store({
         headerState: true
     },
     mutations: {
+        // 组件渐变效果
         headerUp(state) {
             state.headerState = false;
         },

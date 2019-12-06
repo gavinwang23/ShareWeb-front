@@ -2,14 +2,17 @@
   <el-container>
     <el-header style="background-color: white;">
       <div class="headerBox">
-        <transition name="slide-fade">
+
+        <!-- 使用了动画效果的header -->
+        <!-- <transition name="slide-fade">
           <div class="fixed" v-if="show" key="myHeadNav">
             <myHeadNav></myHeadNav>
           </div>
           <div class="fixed" v-if="!show" key="myHead">
             <myHead></myHead>
           </div>
-        </transition>
+        </transition> -->
+            <myHead></myHead>
       </div>
     </el-header>
     <el-container>
@@ -44,14 +47,15 @@
 <script>
 // import Cookies from "js-cookie";
 
-import myHeadNav from "./../components/header/header.vue";
-import myHead from "./../components/header/headerNav.vue";
+// import myHeadNav from "./../components/header/header.vue";
+// import myHead from "./../components/header/headerNav.vue";
+import myHead from "./../components/header/headerBackUp.vue";
 import rotationChart from "./../components/rotationChart.vue";
 import layout from "./../components/layout.vue";
 export default {
   components: {
     myHead,
-    myHeadNav,
+    // myHeadNav,
     rotationChart,
     layout
   },
