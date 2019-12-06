@@ -6,16 +6,14 @@
 </template>
 <style type="text/css">
 .w-e-text-container{
-    height: 92vh !important;
+    height: 85vh !important;
 }
 .w-e-menu{
   margin-right:1.5%;
-    float: left;
 }
 .w-e-toolbar{
-  float: left;
   width: 100%;
-  overflow: scroll;
+  overflow:auto;
 }
 </style>
 <script>
