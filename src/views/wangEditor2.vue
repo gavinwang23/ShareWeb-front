@@ -4,6 +4,18 @@
         <Button shape="circle" type="primary" v-on:click="getContent">submit</Button>
     </div>
 </template>
+<style type="text/css">
+.w-e-text-container{
+    height: 85vh !important;
+}
+.w-e-menu{
+  margin-right:1.5%;
+}
+.w-e-toolbar{
+  width: 100%;
+  overflow:auto;
+}
+</style>
 <script>
 import E from 'wangeditor'
  export default {
@@ -32,6 +44,7 @@ import E from 'wangeditor'
         this.editor.customConfig.pasteTextHandle = (content) => { //支持粘贴
             return content
         }
+        this.editor.customConfig.zIndex = 1;
         this.editor.create()
       }
   }
