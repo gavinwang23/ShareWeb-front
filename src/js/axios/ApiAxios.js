@@ -10,7 +10,7 @@ const httpService = axios.create({
 // const URL = "http://192.168.1.129:8888/api/";
 // const URL = "http://localhost:8888/api/";
 // const URL = "http://192.168.1.140:8888/api/"
-const URL = "http://192.168.1.124:8888/api/"
+const URL = "http://192.168.1.152:8888/api/"
 
 
 // request拦截器
@@ -23,7 +23,6 @@ httpService.interceptors.request.use(
         // if (config.data != null && config.data.requestInterceptors == false) {
         //     config.data = config.data.params;
         // }
-        console.log(config)
         return config;
     },
     error => {

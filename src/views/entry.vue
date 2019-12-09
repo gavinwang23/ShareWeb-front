@@ -60,7 +60,6 @@ export default {
     };
   },
   created() {
-    console.log(this.$route.params.entryData);
     if (this.$route.params.entryData != undefined) {
       this.switchProperty = this.$route.params.entryData;
     }else{

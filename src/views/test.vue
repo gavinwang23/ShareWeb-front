@@ -47,8 +47,10 @@ export default {
         .catch(error => {});
     },
     testIndex() {
+      let params ={pageNo:2,pageSize:20};
+      
       this.$axios
-        .getWithURLWithToken("index/index_info/get")
+        .getWithURLWithToken("index/articles/get",params)
         .then(response => {})
         .catch(error => {});
     },
