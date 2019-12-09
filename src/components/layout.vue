@@ -99,7 +99,11 @@ export default {
 
         this.$axios
           .getWithURLWithToken("index/articles/get", params)
-          .then(response => {})
+          .then(response => {
+            for (var i in response.data.array) {
+              this.list.push(response.data.array[i]);
+            }
+          })
           .catch(error => {});
       }
     }
