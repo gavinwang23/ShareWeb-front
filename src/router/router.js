@@ -102,6 +102,12 @@ const routes = [{
         component: () =>
             import ("../views/article.vue")
     },
+    {
+        path: '/plate',
+        name: 'plate',
+        component: () =>
+            import ("../views/plate.vue")
+    },
 
 ]
 

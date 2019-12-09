@@ -47,7 +47,7 @@ export default {
         .catch(error => {});
     },
     testIndex() {
-      let params ={pageNo:2,pageSize:20};
+      let params ={pageNo:1,pageSize:20};
       
       this.$axios
         .getWithURLWithToken("index/articles/get",params)
