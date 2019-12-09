@@ -8,8 +8,9 @@ const httpService = axios.create({
     timeout: 5000 // 请求超时时间
 });
 // const URL = "http://192.168.1.129:8888/api/";
-const URL = "http://localhost:8888/api/";
-// const URL = "http://192.168.1.109:8888/api/"
+// const URL = "http://localhost:8888/api/";
+// const URL = "http://192.168.1.140:8888/api/"
+const URL = "http://192.168.1.124:8888/api/"
 
 
 // request拦截器

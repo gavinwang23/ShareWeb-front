@@ -45,7 +45,7 @@ export default {
         if(response.data.code == 200){
           //储存用户名,15分钟过期
           // Cookies.set("userName",username,{expires:0.0104}),
-          Cookies.set("userName",username),
+          Cookies.set("userName",username);
           this.action();
         }
       })

@@ -2,7 +2,6 @@
   <el-container>
     <el-header style="background-color: white;">
       <div class="headerBox">
-
         <!-- 使用了动画效果的header -->
         <!-- <transition name="slide-fade">
           <div class="fixed" v-if="show" key="myHeadNav">

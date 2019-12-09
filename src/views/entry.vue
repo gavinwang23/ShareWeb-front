@@ -56,11 +56,16 @@ export default {
   },
   data() {
     return {
-      switchProperty: true
+      switchProperty:true,
     };
   },
-  created(){
-    this.switchProperty = this.$route.params.entryData;
+  created() {
+    console.log(this.$route.params.entryData);
+    if (this.$route.params.entryData != undefined) {
+      this.switchProperty = this.$route.params.entryData;
+    }else{
+      this.switchProperty = true;
+    }
   },
   methods: {
     loginFunction() {

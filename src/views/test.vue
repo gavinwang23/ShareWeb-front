@@ -3,6 +3,7 @@
     <el-button round @click="test()"></el-button>
     <!-- 测试index接口 -->
     <el-button round @click="testIndex()"></el-button>
+    <el-button round @click="testAdd()"></el-button>
   </div>
 </template>
 
@@ -41,6 +42,9 @@ export default {
         .then(response => {
         })
         .catch(error => {});
+    },
+    testAdd(){
+      
     }
   }
 };

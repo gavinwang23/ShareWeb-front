@@ -101,10 +101,8 @@ export default {
   },
   methods: {
     logout() {
-      window.console.log("function play");
-      Cookies.remove("userName");
+      // Cookies.remove("userName");
       Cookies.remove("token");
-      // console.log();
     },
     handleCommand(userPointe) {
       window.console.log(userPointe);
