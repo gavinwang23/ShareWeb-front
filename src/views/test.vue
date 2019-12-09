@@ -4,6 +4,11 @@
     <!-- 测试index接口 -->
     <el-button round @click="testIndex()"></el-button>
     <el-button round @click="testAdd()"></el-button>
+    <div style="overflow:auto;height:300px;">
+      <ul id="scroll" style="height:500px;">
+        <li v-for="i in count" :key="i.num" class="infinite-list-item">{{ i.content }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -19,8 +24,13 @@
  */
 import QS from "qs";
 export default {
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll, true);
+  },
   data() {
-    return {};
+    return {
+      count: [{ num: 1 ,content:"这是第一个内容"}, { num: 2,content:"这是第二个内容" }, { num: 3,content:"这是第三个内容" }]
+    };
   },
   methods: {
     test() {
@@ -36,15 +46,27 @@ export default {
         })
         .catch(error => {});
     },
-    testIndex(){
+    testIndex() {
       this.$axios
         .getWithURLWithToken("index/index_info/get")
-        .then(response => {
-        })
+        .then(response => {})
         .catch(error => {});
     },
-    testAdd(){
-      
+    testAdd() {},
+    handleScroll(e){
+        //变量scrollTop是滚动条滚动时，距离顶部的距离
+        var scrollTop = e.target.scrollTop;
+        //变量windowHeight是可视区的高度
+        var windowHeight = e.target.clientHeight;
+        //变量scrollHeight是滚动条的总高度
+   		var scrollHeight = e.target.scrollHeight;
+        //滚动条到底部的条件
+        if(scrollTop+windowHeight==scrollHeight){
+            //写后台加载数据的函数
+//          	console.log("距顶部"+scrollTop+"可视区高度"+windowHeight+"滚动条总高度"+scrollHeight);
+            var x=600;
+            document.getElementById("scroll").style.height= (x+100)+"px";
+        }
     }
   }
 };

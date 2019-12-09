@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul class="infinite-list" v-infinite-scroll="load" >
+  <div style="overflow:auto;">
+    <ul id="scroll">
       <li v-for="i in list" :key="i.title">
         <div class="articleTitleBox">
           <router-link to>
@@ -57,15 +57,25 @@ export default {
       ]
     };
   },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll, true);
+  },
   methods: {
-    load(){
-      let i=1;
-      console.log(i+=1)
+    handleScroll(e) {
+      //变量scrollTop是滚动条滚动时，距离顶部的距离
+      var scrollTop = e.target.scrollTop;
+      //变量windowHeight是可视区的高度
+      var windowHeight = e.target.clientHeight;
+      //变量scrollHeight是滚动条的总高度
+      var scrollHeight = e.target.scrollHeight;
+      //滚动条到底部的条件
+      if (scrollTop + windowHeight == scrollHeight) {
+        //写后台加载数据的函数
+        console.log("距顶部 "+scrollTop+"可视区高度"+windowHeight+"滚动条总高度"+scrollHeight);
+        var x = 600;
+        document.getElementById("scroll").style.height = x + 100 + "px";
+      }
     }
-    // load() {
-      // console.log("添加数组元素")
-      // this.list.splice(this.list.length, 0, this.list2);
-    // }
   }
 };
 </script>
