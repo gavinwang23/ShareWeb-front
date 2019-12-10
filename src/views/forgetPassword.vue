@@ -6,6 +6,7 @@
           <el-step title="步骤 1"></el-step>
           <el-step title="步骤 2"></el-step>
           <el-step title="步骤 3"></el-step>
+          <el-step title="完成"></el-step>
         </el-steps>
       </el-col>
     </el-row>
@@ -27,6 +28,16 @@
           </div>
           <el-input v-model="answer" placeholder="答案"></el-input>
         </div>
+        <div class="inputBox" v-if="active==2">
+          <el-input v-model="password" placeholder="请输入新密码"></el-input>
+          <el-input v-model="checkPasswordData" placeholder="请再次输入新密码" @input="checkPassword()"></el-input>
+            <div class="iconBox" v-if="notAllowPassword">
+              <i class="el-icon-error"></i>
+            </div>
+            <div class="iconBox" v-if="allowPassword">
+              <i class="el-icon-success"></i>
+            </div>
+        </div>
         <div class="buttonBox">
           <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
         </div>
@@ -46,6 +57,10 @@ export default {
       userName: "",
       answer: "",
       active: 0,
+      password:"",
+      checkPasswordData:"",
+      allowPassword:false,
+      notAllowPassword:false,
       options: [
         {
           value: "选项1",
@@ -78,7 +93,7 @@ export default {
         //在次处判断答案是否正确
         //或者发送请求交给后端来做这件事
       }
-      if ((this.active == 2)) {
+      if (this.active == 3) {
         //在这里发送数据给后端判断然后根据response来弹出messageBox
         //然后刷新当前页面
         this.messageBox();
@@ -88,14 +103,22 @@ export default {
       this.$confirm("修改密码成功", "提示", {
         confirmButtonText: "确定",
         type: "success"
-      })
-        .then(() => {
-          this.$router.push({ path: "/" });
-          this.$message({
-            type: "success",
-            message: "正在跳转回首页!"
-          });
-        })
+      }).then(() => {
+        this.$router.push({ path: "/" });
+        this.$message({
+          type: "success",
+          message: "正在跳转回首页!"
+        });
+      });
+    },
+    checkPassword(){
+      if(this.password == this.checkPasswordData){
+        this.allowPassword = true;
+        this.notAllowPassword = false;
+      }else{
+        this.notAllowPassword = true;
+        this.allowPassword = false;
+      }
     }
   }
 };
