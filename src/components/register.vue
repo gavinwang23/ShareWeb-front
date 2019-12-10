@@ -13,7 +13,7 @@
         <el-input v-model="verifyCode" placeholder="验证码"></el-input>
       </div>
       <div class="verifyCodeImgBox">
-        <img :src="this.verifyPic" @click="applyVerify" width="100%" />
+        <img :src="this.verifyPic" @click="applyVerify"  width="100%" />
       </div>
     </div>
     <div class="buttonBox" :class="{'banButtonAndVerify':banButtonAndVerify}">
@@ -36,13 +36,17 @@ export default {
       username: "",
       password: "",
       verifyCode: "",
-      verifyPic: "",
+      verifyPic: "http://192.168.1.124:8888/api/verify_code",
+      determineVerify: true,
       allowUsername: false,
       notallowUsername: false,
       banButtonAndVerify: false
     };
   },
   created() {
+    this.applyVerify();
+  },
+  mounted() {
     this.applyVerify();
   },
   methods: {
@@ -61,15 +65,14 @@ export default {
       }
     },
     //倒计时
-    reverseTimeRegister(){
+    reverseTimeRegister() {
       window.console.log(time);
       var y = time--;
       if (y > 0) {
         setTimeout(this.reverseTimeRegister, 1000);
-      }
-       else {
-         time = 3
-         this.banButtonAndVerify = false;
+      } else {
+        time = 3;
+        this.banButtonAndVerify = false;
       }
     },
     //判断用户名是否重复
@@ -139,11 +142,10 @@ export default {
       var y = time--;
       if (y > 0) {
         setTimeout(this.reverseTime, 1000);
-      }
-       else {
+      } else {
         this.$router.replace({ path: "/" });
       }
-    },
+    }
   }
 };
 </script>

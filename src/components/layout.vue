@@ -4,28 +4,28 @@
       <li v-for="i in list" :key="i.title">
         <div class="articleTitleBox">
           <router-link to>
-            <b>{{i.title}}</b>
+            <b>{{i.articleTitle}}</b>
           </router-link>
         </div>
         <div class="articleContainerBox">
           <img src="../assets/picture/pic.jpg" align="right" />
           <!-- </div> -->
-          {{i.time}}
+          {{i.articleContent}}
           <div class="layoutFooter">
             <div class="articleUp articleFooterLi">
               <i class="el-icon-caret-top"></i>
-              <router-link to>111</router-link>
+              <router-link to>{{i.articleAdmire}}</router-link>
             </div>
             <div class="articleDown articleFooterLi">
               <i class="el-icon-caret-bottom"></i>
-              <router-link to>222</router-link>
+              <router-link to>{{i.articleOppose}}</router-link>
             </div>
             <div class="articleComment articleFooterLi">
               <i class="el-icon-chat-square"></i>
-              <router-link to>123</router-link>
+              <!-- <router-link to>{{}}</router-link> -->
             </div>
             <div class="articleUser">
-              <router-link to>11111</router-link>
+              <router-link to>{{i.userName}}</router-link>
             </div>
           </div>
         </div>
@@ -33,10 +33,12 @@
     </ul>
     <!-- 加载时候出现的 -->
     <div class="loading" v-if="loadingData">
-      <div class="nullTitleBox"></div>
-      <div class="nullContentBox1"></div>
-      <div class="nullContentBox2"></div>
-      <div class="nullFooter"></div>
+      <!-- setTimeout使用失败 -->
+      <!-- <div class="nullTitleBox"></div>
+      <div class="nullContentBox1" :class="{nullContentBox1Transition:loadingAnimation}"></div>
+      <div class="nullContentBox2" :class="{nullContentBox2Transition:loadingAnimation}"></div>
+      <div class="nullFooter"></div> -->
+      <i class="el-icon-loading"></i>
     </div>
   </div>
 </template>
@@ -46,34 +48,20 @@
 </style>
 
 <script>
+var time = 2;
 export default {
   data() {
     return {
-      loadingData: false,
-      list: [
-        {
-          title: "How to study Vue",
-          time: "2016-04-10"
-        },
-        {
-          title: "How to study Typescript",
-          time: "2019-11-10"
-        }
-      ],
-      list2: [
-        {
-          title: "How to study Vue",
-          time: "2016-04-10"
-        },
-        {
-          title: "How to study Typescript",
-          time: "2019-11-10"
-        }
-      ]
+      loadingData: true,
+      loadingAnimation: true,
+      list: []
     };
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll, true);
+  },
+  created() {
+    this.requestArticleData();
   },
   methods: {
     handleScroll(e) {
@@ -84,28 +72,45 @@ export default {
       //变量scrollHeight是滚动条的总高度
       var scrollHeight = e.target.scrollHeight;
       //滚动条到底部的条件
+      this.loadingData = true;
       if (scrollTop + windowHeight == scrollHeight) {
         //写后台加载数据的函数
-        console.log(
-          "距顶部 " +
-            scrollTop +
-            "可视区高度" +
-            windowHeight +
-            "滚动条总高度" +
-            scrollHeight
-        );
-        //增加首页下拉滚动条增加文章的效果
-        let params = { pageNo: 1, pageSize: 20 };
-
-        this.$axios
-          .getWithURLWithToken("index/articles/get", params)
-          .then(response => {
-            for (var i in response.data.array) {
-              this.list.push(response.data.array[i]);
-            }
-          })
-          .catch(error => {});
+        this.loadingData = true;
+        this.requestArticleData();
+        this.mountedSetTimeout();
       }
+    },
+    //增加首页下拉滚动条增加文章的效果
+    requestArticleData() {
+      this.$axios
+        .getWithURLWithToken("index/articles/get")
+        .then(response => {
+          let list = [];
+          list = response.data.list;
+          // console.log(list);
+          // this.list = list;
+          // this.loadingData = false;
+          for (let i = 0; i < list.length; i++) {
+            this.list.push(list[i]);
+          }
+        })
+        .catch(error => {});
+    },
+    mountedSetTimeout() {
+      var that = this;
+      console.log(that)
+      console.log("钩子函数运行");
+      setTimeout(()=>{
+        console.log("Hello");
+        console,log(that);
+        that.loadingAnimation = !that.loadingAnimation;
+        setTimeout(this.mountedSetTimeout(), 100);
+      }, 900);
+    },
+    changeLoading() {
+      console.log("根据条件开始判断是否每隔1s添加/删除一次类");
+      // this.loadingAnimation = !this.loadingAnimation;
+      // setTimeout(this.mountedSetTimeout(),100);
     }
   }
 };
