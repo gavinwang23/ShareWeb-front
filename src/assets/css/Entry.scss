@@ -3,7 +3,12 @@
 }
 
 .el-main {
-    padding: 1%;
+    // padding: 1%;
+    background-color: #b8e5f8;
+}
+
+.el-row {
+    background: url("#{$img}/background.png");
 }
 
 .imgBoxContainer {

@@ -77,7 +77,6 @@ export default {
         //写后台加载数据的函数
         this.loadingData = true;
         this.requestArticleData();
-        this.mountedSetTimeout();
       }
     },
     //增加首页下拉滚动条增加文章的效果
@@ -96,22 +95,6 @@ export default {
         })
         .catch(error => {});
     },
-    mountedSetTimeout() {
-      var that = this;
-      console.log(that)
-      console.log("钩子函数运行");
-      setTimeout(()=>{
-        console.log("Hello");
-        console,log(that);
-        that.loadingAnimation = !that.loadingAnimation;
-        setTimeout(this.mountedSetTimeout(), 100);
-      }, 900);
-    },
-    changeLoading() {
-      console.log("根据条件开始判断是否每隔1s添加/删除一次类");
-      // this.loadingAnimation = !this.loadingAnimation;
-      // setTimeout(this.mountedSetTimeout(),100);
-    }
   }
 };
 </script>
