@@ -6,6 +6,12 @@
     <el-button @click="getContent"></el-button>
   </div>
 </template>
+<style  type="text/css">
+.v-note-panel{
+  height:80vh;
+}
+
+</style>
 
 <script>
 export default {
