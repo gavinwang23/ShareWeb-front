@@ -108,6 +108,12 @@ const routes = [{
         component: () =>
             import ("../views/plate.vue")
     },
+    {
+        path: '/follow_page',
+        name: 'followPage',
+        component: () =>
+            import ("../views/followPage.vue")
+    },
 
 ]
 
