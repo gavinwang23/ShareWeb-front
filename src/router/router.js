@@ -108,6 +108,12 @@ const routes = [{
         component: () =>
             import ("../views/plate.vue")
     },
+    {
+        path: '/test2',
+        name: 'test2',
+        component: () =>
+            import ("../views/test2.vue")
+    }
 
 ]
 
