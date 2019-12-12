@@ -4,12 +4,10 @@
       <!-- 下面注释标签中的内容不知道如何使用故先备注 -->
       <!-- @select="handleSelect" -->
       <router-link to="/" class="navElement">
-        <el-menu-item index="0">
           <img src="../../assets/picture/logo.png" height="20px;" />
-        </el-menu-item>
       </router-link>
       <router-link to="/" class="navElement">
-        <el-menu-item index="1">首页</el-menu-item>
+        <el-menu-item index="1">关注</el-menu-item>
       </router-link>
       <router-link to="#" class="navElement">
         <el-menu-item index="2">下载app</el-menu-item>
@@ -38,6 +36,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="manager">个人中心</el-dropdown-item>
             <el-dropdown-item>收藏和喜欢</el-dropdown-item>
+            <el-dropdown-item>我的消息</el-dropdown-item>
             <el-dropdown-item>钱包</el-dropdown-item>
             <el-dropdown-item>帮助与反馈</el-dropdown-item>
             <el-dropdown-item command="logout">退出</el-dropdown-item>

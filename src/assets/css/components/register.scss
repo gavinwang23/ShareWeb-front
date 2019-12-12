@@ -1,54 +1,60 @@
-.inputBox {
-    position: relative;
-}
-
-.iconBox {
-    position: absolute;
-    right: -10%;
-    top: 5%;
-    z-index: 1;
-    .el-icon-error {
-        color: red;
+    .inputBox {
+        position: relative;
     }
-    .el-icon-success {
-        color: #32CD32;
+    
+    .iconBox {
+        position: absolute;
+        right: -10%;
+        top: 5%;
+        z-index: 1;
+        .el-icon-error {
+            color: red;
+        }
+        .el-icon-success {
+            color: #32CD32;
+        }
     }
-}
-
-.verifyCodeBox {
-    .verifyCodeInputBox {
-        width: 40%;
-        float: left;
-        margin-left: 5%;
-    }
-    .verifyCodeImgBox {
-        float: right;
-        width: 40%;
-        margin-right: 5%;
-        background-color: #f1f1f1;
-        img {
-            cursor: pointer;
+    
+    .verifyCodeBox {
+        .verifyCodeInputBox {
+            width: 45%;
+            float: left;
+            // margin-left: 5%;
+        }
+        .verifyCodeImgBox {
+            float: right;
+            width: 45%;
+            // margin-right: 5%;
+            background-color: #f1f1f1;
             height: 40px;
+            // text-align: center;
+            img {
+                cursor: pointer;
+                height: 40px;
+            }
+            .el-image {
+                display: flex;
+                height: 40px;
+            }
         }
     }
-}
-
-.buttonBox {
-    clear: both;
-    .el-button {
-        width: 60%;
-        font-size: 100%;
-        color: white;
-        background-color: #32CD32;
-        &:hover {
-            background-color: #228B22;
+    
+    .buttonBox {
+        clear: both;
+        .el-button {
+            width: 60%;
+            font-size: 100%;
+            color: white;
+            background-color: #32CD32;
+            &:hover {
+                background-color: #228B22;
+            }
         }
+        text-align: center;
+        padding-top: 5%;
     }
-    text-align: center;
-    padding-top: 5%;
-}
-
-.banButtonAndVerify {
-    cursor: Default;
-    pointer-events: none;
-}
+    
+    .banButtonAndVerify {
+        cursor: Default;
+        pointer-events: none;
+    }

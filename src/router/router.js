@@ -113,7 +113,13 @@ const routes = [{
         name: 'test2',
         component: () =>
             import ("../views/test2.vue")
-    }
+    },
+    {
+        path: '/follow_page',
+        name: 'followPage',
+        component: () =>
+            import ("../views/followPage.vue")
+    },
 
 ]
 

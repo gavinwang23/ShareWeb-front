@@ -6,14 +6,14 @@
 </template>
 <style type="text/css">
 .w-e-text-container{
-    height: 85vh !important;
+    height: 88vh !important;
 }
 .w-e-menu{
-  margin-right:1.5%;
+  margin-right:3.5vh;
 }
 .w-e-toolbar{
   width: 100%;
-  overflow:auto;
+  flex-wrap:wrap; 
 }
 </style>
 <script>
@@ -23,7 +23,9 @@ import E from 'wangeditor'
       data () {
         return {
             editor: '',
-            editorContent: ''
+            editorContent: '',
+            C1:true,
+            C2:false,
         }
       },
       methods: {

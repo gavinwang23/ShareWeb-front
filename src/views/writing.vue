@@ -59,8 +59,8 @@
               <el-popover placement="top" width="160" trigger="hover">
                 <div style="text-align: right; margin: 0">
                   <el-popover placement="left" width="100" trigger="hover">
-                    <el-button type="text" size="mini">富文本编辑器</el-button>
-                    <el-button type="text" class="writing-see-button" size="mini">MarkDown文本编辑器</el-button>
+                    <el-button type="text" size="mini" @click="show3=true,show4=false">富文本编辑器</el-button>
+                    <el-button type="text" class="writing-see-button" size="mini" @click="show3=false,show4=true">MarkDown文本编辑器</el-button>
                     <el-button
                       type="text"
                       class="writing-setup-button"
@@ -119,7 +119,8 @@
         </el-col>
         <el-col :span="20">
           <writeArticle v-show="show2"></writeArticle>
-          <wangEditor2 :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}"></wangEditor2>
+          <wangEditor2 :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show3"></wangEditor2>
+          <mavonEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show4"></mavonEditor>
         </el-col>
       </el-row>
     </div>
@@ -133,10 +134,12 @@
 <script>
 import wangEditor2 from '../views/wangEditor2.vue'
 import writeArticle from '../views/writeArticle.vue'
+import mavonEditor from '../views/mavonEditor.vue'
 export default {
   components : {
     wangEditor2,
-    writeArticle
+    writeArticle,
+    mavonEditor,
   },
   data() {
     return {
@@ -145,6 +148,8 @@ export default {
       visible: false,
       show1: false,
       show2:false,
+      show3:true,
+      show4:false,
       value:false,
       value1:false,
       value2:false,
