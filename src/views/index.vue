@@ -77,6 +77,7 @@ export default {
   methods: {},
   //负责调整header状态
   //computed和watch中的函数名必须相同，前者返回的值会作为参数传递到后者的对应方法中。
+  //关于动画效果
   computed: {
     headerChange() {
       return this.$store.state.headerState;

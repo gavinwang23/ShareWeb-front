@@ -1,0 +1,32 @@
+.leftBox {
+    border: 1px solid red;
+    margin: 5% auto;
+    padding: 5%;
+    border-radius: 15px;
+    .title {
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 5%;
+        .el-button {
+            background-color: #1E90FF;
+            color: white;
+        }
+    }
+}
+
+.content {
+    ul {
+        list-style: none;
+        li {
+            padding: {
+                top: 5%;
+                left: 5%;
+                bottom: 5%;
+            }
+            margin: {
+                top: 5%;
+            }
+            border-radius: 10px;
+            background-color: honeydew;
+        }
+    }
+}
