@@ -6,7 +6,7 @@
       <router-link to="/" class="navElement">
           <img src="../../assets/picture/logo.png" height="50px;" />
       </router-link>
-      <router-link to="/" class="navElement">
+      <router-link to="/follow_page" class="navElement">
         <el-menu-item index="1">关注</el-menu-item>
       </router-link>
       <router-link to="#" class="navElement">

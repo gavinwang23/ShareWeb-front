@@ -26,16 +26,26 @@
                       <el-dropdown-item>蚵仔煎</el-dropdown-item>
                     </el-dropdown-menu>
                   </el-dropdown>
+                  <div class="addFollow">
+                    <i class="el-icon-user-solid"></i>
+                    添加关注
+                  </div>
                 </div>
                 <div class="content">
                   <ul>
-                    <li>用户a</li>
-                    <li>用户b</li>
+                    <router-link to>
+                      <li class="active">用户a</li>
+                    </router-link>
+                    <router-link to>
+                      <li>用户b</li>
+                    </router-link>
                   </ul>
                 </div>
               </div>
             </el-col>
-            <el-col :span="16">222</el-col>
+            <el-col :span="16">
+              <div class="followContent">11</div>
+            </el-col>
           </el-col>
         </el-row>
       </el-main>
