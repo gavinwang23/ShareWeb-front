@@ -9,7 +9,7 @@
     height: 88vh !important;
 }
 .w-e-menu{
-  margin-right:2vh;
+  margin-right:3.5vh;
 }
 .w-e-toolbar{
   width: 100%;
