@@ -44,7 +44,18 @@
               </div>
             </el-col>
             <el-col :span="16">
-              <div class="followContent">11</div>
+              <div class="followContent">
+                <div class="headerBox">
+                  <div class="headerImage">
+                    <img :src="123" height="50px;" />
+                  </div>
+                  <div class="headerInfo">
+                    <div class="title"></div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <layout></layout>
+              </div>
             </el-col>
           </el-col>
         </el-row>
@@ -59,9 +70,11 @@
 
 <script>
 import myHead from "./../components/header/headerBackUp.vue";
+import layout from "./../components/layout.vue";
 export default {
   components: {
-    myHead
+    myHead,
+    layout
   }
 };
 </script>

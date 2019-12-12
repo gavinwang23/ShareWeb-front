@@ -62,4 +62,21 @@
     padding: 2%;
     border-radius: 15px;
     color: black;
+    .headerBox {
+        overflow: hidden;
+        //解决ie浏览器的浮动问题
+        zoom: 1;
+        .headerImage {
+            background-color: black;
+            width: 80px;
+            height: 80px;
+            float: left;
+        }
+        .headerInfo {
+            background-color: blue;
+            float: right;
+            width: 70%;
+            height: 100px;
+        }
+    }
 }
