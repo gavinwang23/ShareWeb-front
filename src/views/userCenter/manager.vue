@@ -14,7 +14,7 @@
         <div id="overview">
           <div id="member_lever">
             <div id="lever_icon">
-              <img src="../assets/icon/c1.png">
+              <img src="../../assets/icon/c1.png">
             </div>
             <div id="lever">
               <div id="lever_num">当前会员等级：{{lever}}</div>
@@ -58,12 +58,12 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/css/manager.scss";
+@import "../../assets/css/manager.scss";
 </style>
 
 <script>
-  import myHead from "./../components/header/header.vue";
-  import sideBar from "./../components/sidebar.vue";
+  import myHead from "./../../components/header/header.vue";
+  import sideBar from "./../../components/sidebar.vue";
   export default {
     components: {
       myHead,

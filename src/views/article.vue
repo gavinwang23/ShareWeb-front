@@ -6,9 +6,12 @@
   <el-main>
     <div class="article_main">
       <h1>{{title}}</h1>
+<<<<<<< HEAD
       <div class="article_info">
         <a href="">1111原创</a>
       </div>
+=======
+>>>>>>> 52f6dbe84abff9658a8f96a5a9101dfa374b4712
       <div v-html="content">{{content}}</div>
     </div>
     <div class="comment_area">
