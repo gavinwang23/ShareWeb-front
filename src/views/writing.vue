@@ -10,7 +10,7 @@
               <el-menu
                 default-active="2"
                 class="el-menu-vertical-demo"
-                background-color="#f1f0f0"
+                background-color="#ffffff"
                 text-color="#000"
                 active-text-color="rgb(238, 189, 54)"
               >
@@ -28,32 +28,26 @@
                     </div>
                   </transition>
                 </el-menu-item-group>
-                <el-menu-item index="2">
-                  <i class="el-icon"></i>
-                  <span slot="title" @click="show2=true,C1=false,C2=true">
+                <el-menu-item index="2"@click="show2=true,C1=false,C2=true">
                     随笔
-                    <el-button
+                    <!-- <el-button
                       size="mini"
                       icon="el-icon-search"
                       type="text"
                       class="writing-set-button"
                       circle
-                    ></el-button>
-                  </span>
+                    ></el-button> -->
                 </el-menu-item>
-                <el-menu-item index="3">
-                  <i class="el-icon"></i>
-                  <span slot="title" @click="show2=true,C1=false,C2=true">
+                <el-menu-item index="3" @click="show2=true,C1=false,C2=true">
                     日记本
-                    <el-button
+                    <!-- <el-button
                       @click="visible=true"
                       size="mini"
                       icon="el-icon-search"
                       class="writing-set-button"
                       circle
                       type="text"
-                    ></el-button>
-                  </span>
+                    ></el-button> -->
                 </el-menu-item>
               </el-menu>
               <el-popover placement="top" width="160" trigger="hover">
@@ -100,10 +94,10 @@
                   <el-button type="text" class="writing-setup-button" size="mini">回收站</el-button>
                   <el-button type="text" class="writing-setup-button" size="mini">帮助与反馈</el-button>
                 </div>
-                <el-button size="small" class="writing-problem" slot="reference" type="text">设置</el-button>
+                <el-button size="medium" class="writing-problem" slot="reference" type="text">设置</el-button>
               </el-popover>
               <el-button
-                size="small"
+                size="edium"
                 @click="dialogVisible = true"
                 class="writing-problem"
                 type="text"
@@ -118,7 +112,17 @@
           </div>
         </el-col>
         <el-col :span="20">
-          <writeArticle v-show="show2"></writeArticle>
+             <div v-show="show2">
+            <el-menu
+              default-active="2"
+              class="writeArticle"
+              background-color="#ffffff"              
+            >
+              <el-menu-item index="2">
+                <el-button type="text">新建文章</el-button>
+              </el-menu-item>
+            </el-menu>
+   </div>        
           <wangEditor2 :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show3"></wangEditor2>
           <mavonEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show4"></mavonEditor>
         </el-col>
@@ -159,4 +163,8 @@ export default {
     };  
   },
 };
+var person = [
+  "日记本",
+  "随笔"             
+];
 </script>

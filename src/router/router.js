@@ -37,12 +37,6 @@ const routes = [{
             import ("../views/analytics.vue")
     },
     {
-        path: '/wangEditor',
-        name: 'wangEditor',
-        component: () =>
-            import ("../components/wangEditor.vue")
-    },
-    {
         path: '/wangEditor2',
         name: 'wangEditor2',
         component: () =>

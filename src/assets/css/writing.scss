@@ -3,13 +3,13 @@
   color: rgb(212, 212, 212);
 }
 .bg-purple-left {
-  background: #f1f0f0;
+  background: #ffffff;
 }
 .row-bg {
   background-color: #f9fafc;
 }
 .writing-back-button {
-  background-color: #f1f0f0;
+  background-color: #ffffff;
   border: 1px solid #99ccff;
   color: #99ccff;
   font-size: 80%;
@@ -35,8 +35,8 @@
   height: 8%;
 }
 .el-menu-vertical-demo {
-  min-height: 86.5vh;
-  max-height: 86.5vh;
+  min-height: 86vh;
+  max-height: 86vh;
   width: 100%;
 }
 .writing-problem {
@@ -77,11 +77,10 @@
   float: left;
 }
 .wangEditorboxtow{
-  width: 127vh;
+  width: 76%;
   float: left;
 }
 .wangEditorboxone{
-  width: 169vh;
+  width: 100%;
   float: left;
-  margin-right:1.5%;
 }

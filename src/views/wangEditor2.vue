@@ -10,14 +10,17 @@
 }
 .w-e-menu{
   margin-right:3.5vh;
+  background:#ffffff;
 }
 .w-e-toolbar{
   width: 100%;
-  flex-wrap:wrap; 
+  flex-wrap:wrap;
+  background-color: #ffffff !important;
 }
 </style>
 <script>
 import E from 'wangeditor'
+import { white } from 'color-name'
  export default {
       name: 'editor',
       data () {
