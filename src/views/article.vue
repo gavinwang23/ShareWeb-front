@@ -6,7 +6,7 @@
   <el-main>
     <div class="article_main">
       <h1>{{title}}</h1>
-      <p>{{content}}</p>
+      <p v-html="content"></p>
     </div>
     <div>
       <h1>{{title}}</h1>
