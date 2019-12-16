@@ -141,13 +141,11 @@
 </style>
 
 <script>
-import wangEditor2 from "../views/wangEditor2.vue";
-import writeArticle from "../views/writeArticle.vue";
+import wangEditor from "../components/wangEditor.vue";
 import mavonEditor from "../views/mavonEditor.vue";
 export default {
   components: {
-    wangEditor2,
-    writeArticle,
+    wangEditor,
     mavonEditor
   },
   data() {

@@ -31,7 +31,7 @@ const routes = [{
         path: '/wangEditor2',
         name: 'wangEditor2',
         component: () =>
-            import ("../views/wangEditor2.vue")
+            import ("../components/wangEditor.vue")
     },
     {
         path: '/mavonEditor',
@@ -62,12 +62,6 @@ const routes = [{
         name: 'account',
         component: () =>
             import ("../views/userCenter/account.vue")
-    },
-    {
-        path: '/writeArticle',
-        name: 'writeArticle',
-        component: () =>
-            import ("../views/writeArticle.vue")
     },
     {
         path: '/myarticle',
