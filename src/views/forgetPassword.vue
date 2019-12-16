@@ -1,7 +1,7 @@
 <template>
   <el-main>
-    <el-row>
-      <el-col :span="24">
+    <el-row type="flex"  justify="center" style="margin-top:5%;">
+      <el-col :span="20">
         <el-steps :active="active" finish-status="success">
           <el-step title="步骤 1"></el-step>
           <el-step title="步骤 2"></el-step>
@@ -10,7 +10,7 @@
         </el-steps>
       </el-col>
     </el-row>
-    <el-row type="flex" justify="center" align="middle">
+    <el-row type="flex" justify="center">
       <el-col :span="8">
         <div class="inputBox" v-if="active==0">
           <el-input v-model="userName" placeholder="用户名"></el-input>
