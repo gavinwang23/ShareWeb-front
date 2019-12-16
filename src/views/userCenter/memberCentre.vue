@@ -61,11 +61,11 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/css/manager.scss";
+@import "../../assets/css/manager.scss";
 </style>
 
 <script>
-import myHead from "./../components/header/header.vue";
+import myHead from "./../../components/header/header.vue";
 export default {
    components: {
       myHead,

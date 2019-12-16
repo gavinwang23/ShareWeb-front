@@ -3,10 +3,10 @@
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
       <!-- 下面注释标签中的内容不知道如何使用故先备注 -->
       <!-- @select="handleSelect" -->
-      <router-link to="/" class="navElement">
-          <img src="../../assets/picture/logo.png" height="50px;" />
+      <router-link to="/" class="navElement imgBox">
+          <img src="../../assets/picture/logo.png" height="40px;" />
       </router-link>
-      <router-link to="/" class="navElement">
+      <router-link to="/follow_page" class="navElement">
         <el-menu-item index="1">关注</el-menu-item>
       </router-link>
       <router-link to="#" class="navElement">

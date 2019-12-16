@@ -40,6 +40,9 @@
       <div class="nullFooter"></div> -->
       <i class="el-icon-loading"></i>
     </div>
+    <div class="loading" v-if="loadingError">
+      加载失败，请重新加载
+    </div>
   </div>
 </template>
 
@@ -54,6 +57,7 @@ export default {
     return {
       loadingData: true,
       loadingAnimation: true,
+      loadingError:false,
       list: []
     };
   },
@@ -86,14 +90,15 @@ export default {
         .then(response => {
           let list = [];
           list = response.data.list;
-          // console.log(list);
-          // this.list = list;
-          // this.loadingData = false;
+          this.loadingData = false;
           for (let i = 0; i < list.length; i++) {
             this.list.push(list[i]);
           }
         })
-        .catch(error => {});
+        .catch(error => {
+          this.loadingData = false;
+          this.loadingError = true;
+        });
     },
   }
 };

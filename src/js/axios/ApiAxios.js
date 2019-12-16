@@ -1,7 +1,6 @@
 import axios from 'axios';
 // import setCookie from '../cookies/ApiCookie';
 import Cookies from 'js-cookie'
-import { request } from 'http';
 // 创建axios实例
 const httpService = axios.create({
     baseURL: "http://localhost:8080", // url前缀

@@ -10,15 +10,6 @@ const routes = [{
             import ( /* webpackChunkName: "about" */ '../views/index.vue')
     },
     {
-        path: '/about',
-        name: 'about',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/About.vue')
-    },
-    {
         path: '/entry',
         name: 'entry',
         component: () =>
@@ -28,13 +19,13 @@ const routes = [{
         path: '/manager',
         name: 'manager',
         component: () =>
-            import ("../views/manager.vue")
+            import ("../views/userCenter/manager.vue")
     },
     {
         path: '/analytics',
         name: 'analytics',
         component: () =>
-            import ("../views/analytics.vue")
+            import ("../views/userCenter/analytics.vue")
     },
     {
         path: '/wangEditor2',
@@ -64,13 +55,13 @@ const routes = [{
         path: '/member_centre',
         name: 'memberCentre',
         component: () =>
-            import ("../views/memberCentre.vue")
+            import ("../views/userCenter/memberCentre.vue")
     },
     {
         path: '/account',
         name: 'account',
         component: () =>
-            import ("../views/account.vue")
+            import ("../views/userCenter/account.vue")
     },
     {
         path: '/writeArticle',
@@ -97,10 +88,10 @@ const routes = [{
             import ("../views/article.vue")
     },
     {
-        path: '/plate',
-        name: 'plate',
+        path: '/test2',
+        name: 'test2',
         component: () =>
-            import ("../views/plate.vue")
+            import ("../views/test2.vue")
     },
     {
         path: '/follow_page',
