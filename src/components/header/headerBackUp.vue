@@ -4,7 +4,7 @@
       <!-- 下面注释标签中的内容不知道如何使用故先备注 -->
       <!-- @select="handleSelect" -->
       <router-link to="/" class="navElement imgBox">
-          <img src="../../assets/picture/logo.png" height="40px;" />
+        <img src="../../assets/picture/logo.png" height="40px;" />
       </router-link>
       <router-link to="/follow_page" class="navElement">
         <el-menu-item index="1">关注</el-menu-item>
@@ -17,14 +17,33 @@
         <el-input v-model="select" @keyup.enter.native="search" placeholder="搜索" style="width:70%"></el-input>
       </el-menu-item>
 
-      <el-menu-item v-if="widthGreaterThan1366" index="4">生活</el-menu-item>
-      <el-menu-item v-if="widthGreaterThan1366" index="5">教育</el-menu-item>
-      <el-menu-item v-if="widthGreaterThan1366" index="6">心理</el-menu-item>
-      <el-menu-item v-if="widthGreaterThan1366" index="7">学习</el-menu-item>
-      <el-menu-item v-if="widthGreaterThan1366" index="8">科技</el-menu-item>
-      <el-menu-item v-if="widthGreaterThan1366" index="9">数码</el-menu-item>
-      <el-menu-item v-if="widthGreaterThan1366" index="10">时尚</el-menu-item>
-      <el-menu-item v-if="widthGreaterThan1366" index="11">影视</el-menu-item>
+      <el-menu-item class="determineHidden" v-if="widthGreaterThan1366" index="4">生活</el-menu-item>
+      <el-menu-item class="determineHidden" v-if="widthGreaterThan1366" index="5">教育</el-menu-item>
+      <el-menu-item class="determineHidden" v-if="widthGreaterThan1366" index="6">心理</el-menu-item>
+      <el-menu-item class="determineHidden" v-if="widthGreaterThan1366" index="7">学习</el-menu-item>
+      <el-menu-item class="determineHidden" v-if="widthGreaterThan1366" index="8">科技</el-menu-item>
+      <el-menu-item class="determineHidden" v-if="widthGreaterThan1366" index="9">数码</el-menu-item>
+      <el-menu-item class="determineHidden" v-if="widthGreaterThan1366" index="10">时尚</el-menu-item>
+      <el-menu-item class="determineHidden" v-if="widthGreaterThan1366" index="11">影视</el-menu-item>
+
+      <el-menu-item class="dertermineBlock">
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            板块
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>生活</el-dropdown-item>
+            <el-dropdown-item>教育</el-dropdown-item>
+            <el-dropdown-item>心理</el-dropdown-item>
+            <el-dropdown-item>学习</el-dropdown-item>
+            <el-dropdown-item>科技</el-dropdown-item>
+            <el-dropdown-item>数码</el-dropdown-item>
+            <el-dropdown-item>时尚</el-dropdown-item>
+            <el-dropdown-item>影视</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </el-menu-item>
 
       <router-link to="/writing" class="navNone">
         <el-menu-item style="float:right">写文章</el-menu-item>
@@ -101,7 +120,7 @@ export default {
       userHead:
         "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
       userState: false,
-      widthGreaterThan1366:true,
+      widthGreaterThan1366: true
     };
   },
   created() {
@@ -128,8 +147,8 @@ export default {
           break;
       }
     },
-    search(){
-      console.log("开始搜索")
+    search() {
+      console.log("开始搜索");
     }
   }
 };
