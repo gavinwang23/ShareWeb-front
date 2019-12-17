@@ -128,7 +128,7 @@
               </el-menu-item>
             </el-menu>
           </div>
-          <wangEditor2 :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show3"></wangEditor2>
+          <wangEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show3"></wangEditor>
           <mavonEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show4"></mavonEditor>
         </el-col>
       </el-row>

@@ -12,19 +12,19 @@
       <router-link to="#" class="navElement">
         <el-menu-item index="2">下载app</el-menu-item>
       </router-link>
-      <el-menu-item index="3">
+      <el-menu-item>
         <i class="el-icon-zoom-in navIconPosition"></i>
-        <el-input v-model="select" placeholder="搜索" style="width:70%"></el-input>
+        <el-input v-model="select" @keyup.enter.native="search" placeholder="搜索" style="width:70%"></el-input>
       </el-menu-item>
 
-      <el-menu-item index="4">生活</el-menu-item>
-      <el-menu-item index="5">教育</el-menu-item>
-      <el-menu-item index="6">心理</el-menu-item>
-      <el-menu-item index="7">学习</el-menu-item>
-      <el-menu-item index="8">科技</el-menu-item>
-      <el-menu-item index="9">数码</el-menu-item>
-      <el-menu-item index="10">时尚</el-menu-item>
-      <el-menu-item index="11">影视</el-menu-item>
+      <el-menu-item v-if="widthGreaterThan1366" index="4">生活</el-menu-item>
+      <el-menu-item v-if="widthGreaterThan1366" index="5">教育</el-menu-item>
+      <el-menu-item v-if="widthGreaterThan1366" index="6">心理</el-menu-item>
+      <el-menu-item v-if="widthGreaterThan1366" index="7">学习</el-menu-item>
+      <el-menu-item v-if="widthGreaterThan1366" index="8">科技</el-menu-item>
+      <el-menu-item v-if="widthGreaterThan1366" index="9">数码</el-menu-item>
+      <el-menu-item v-if="widthGreaterThan1366" index="10">时尚</el-menu-item>
+      <el-menu-item v-if="widthGreaterThan1366" index="11">影视</el-menu-item>
 
       <router-link to="/writing" class="navNone">
         <el-menu-item style="float:right">写文章</el-menu-item>
@@ -100,7 +100,8 @@ export default {
       select: "",
       userHead:
         "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
-      userState: false
+      userState: false,
+      widthGreaterThan1366:true,
     };
   },
   created() {
@@ -126,6 +127,9 @@ export default {
           this.$router.push({ name: "manager" });
           break;
       }
+    },
+    search(){
+      console.log("开始搜索")
     }
   }
 };

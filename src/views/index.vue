@@ -17,7 +17,7 @@
     <el-container>
       <el-main>
         <el-row>
-          <el-col :span="1">&nbsp;</el-col>
+          <el-col :span="1"><br/></el-col>
           <!-- 开始中间的正文内容 -->
           <el-col :span="22" class="mainBox">
             <div class="rotationChartBox">

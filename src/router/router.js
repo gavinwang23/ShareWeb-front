@@ -93,6 +93,12 @@ const routes = [{
         component: () =>
             import ("../views/followPage.vue")
     },
+    {
+        path: '/loginMessage',
+        name: 'loginMessage',
+        component: () =>
+            import ("../components/login/loginMessage")
+    },
 
 ]
 

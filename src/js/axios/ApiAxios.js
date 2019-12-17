@@ -52,7 +52,7 @@ httpService.interceptors.response.use(
         return response
     }, error => {
         // 对响应错误做些什么
-        console.log('error', error.response) // 修改后
+        console.error('error', error.response) // 修改后
         return Promise.reject(error)
     })
 

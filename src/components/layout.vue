@@ -1,6 +1,6 @@
 <template>
   <div style="overflow:auto;">
-    <ul id="scroll">
+    <ul>
       <li v-for="i in list" :key="i.title">
         <div class="articleTitleBox">
           <router-link to>
@@ -37,12 +37,10 @@
       <!-- <div class="nullTitleBox"></div>
       <div class="nullContentBox1" :class="{nullContentBox1Transition:loadingAnimation}"></div>
       <div class="nullContentBox2" :class="{nullContentBox2Transition:loadingAnimation}"></div>
-      <div class="nullFooter"></div> -->
+      <div class="nullFooter"></div>-->
       <i class="el-icon-loading"></i>
     </div>
-    <div class="loading" v-if="loadingError">
-      加载失败，请重新加载
-    </div>
+    <div class="loading" v-if="loadingError">加载失败，请重新加载</div>
   </div>
 </template>
 
@@ -51,42 +49,50 @@
 </style>
 
 <script>
-var time = 2;
+var time = 0;
 export default {
   data() {
     return {
       loadingData: true,
       loadingAnimation: true,
-      loadingError:false,
+      loadingError: false,
       list: []
     };
   },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll, true);
-  },
   created() {
     this.requestArticleData();
+    console.log("添加事件");
+    window.addEventListener("scroll", this.handleScroll, true);
   },
   methods: {
     handleScroll(e) {
+      console.log("事件执行");
       //变量scrollTop是滚动条滚动时，距离顶部的距离
-      var scrollTop = e.target.scrollTop;
+      var scrollTop = document.body.scrollTop;
       //变量windowHeight是可视区的高度
-      var windowHeight = e.target.clientHeight;
+      var windowHeight = document.body.clientHeight;
       //变量scrollHeight是滚动条的总高度
-      var scrollHeight = e.target.scrollHeight;
+      var scrollHeight = document.body.scrollHeight;
       //滚动条到底部的条件
+      console.log(document.body.offsetWidth);
+      console.log(document.body.scrollTop);
+      console.log(scrollTop + windowHeight);
+      console.log(scrollHeight);
       this.loadingData = true;
       if (scrollTop + windowHeight == scrollHeight) {
         //写后台加载数据的函数
-        this.loadingData = true;
         this.requestArticleData();
       }
     },
     //增加首页下拉滚动条增加文章的效果
     requestArticleData() {
+      console.log("发送请求");
+      time++;
+      let pageNo = time;
+      let pageSize = 10;
+      let param = { pageNo: pageNo, pageSize: pageSize };
       this.$axios
-        .getWithURLWithToken("index/articles/get")
+        .getWithURL("index/articles/get", param)
         .then(response => {
           let list = [];
           list = response.data.list;
@@ -99,7 +105,7 @@ export default {
           this.loadingData = false;
           this.loadingError = true;
         });
-    },
+    }
   }
 };
 </script>
