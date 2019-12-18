@@ -1,3 +1,20 @@
+@media screen and (max-width: 1440px) {
+    .determineHidden {
+        display: none !important;
+    }
+    .dertermineBlock {
+        display: block !important;
+    }
+}
+
+.determineHidden {
+    display: block;
+}
+
+.dertermineBlock {
+    display: none;
+}
+
 .navElement {
     float: left;
     text-decoration: none;
@@ -14,11 +31,3 @@
 .cancelText {
     text-decoration: none;
 }
-
-// .myhead {
-//     position: fixed;
-//     top: 0;
-//     right: 0;
-//     left: 0;
-//     z-index: 3;
-// }

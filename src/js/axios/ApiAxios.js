@@ -15,10 +15,20 @@ const URL = "http://192.168.1.124:8888/api/"
 // request拦截器
 httpService.interceptors.request.use(
     config => {
-        console.log(config)
-        config.headers.Authorization = 'Bearer ' + Cookies.get("token");
-        //使重新赋值仅仅出现在post请求中
-        //post请求的参数为data
+        console.log(config);
+        if (config.method == "get") {
+            if (config.params.requestInterceptors == false) {
+                //重新赋值操作
+                config.params = config.params.params;
+            }
+        } else if (config.method == "post") {
+            if (config.data.requestInterceptors == false) {
+
+            }
+        } else {
+            config.headers.Authorization = 'Bearer ' + Cookies.get("token");
+        }
+        // config.headers.Authorization = 'Bearer ' + Cookies.get("token");
         // if (config.data != null && config.data.requestInterceptors == false) {
         //     config.data = config.data.params;
         // }
@@ -42,7 +52,7 @@ httpService.interceptors.response.use(
         return response
     }, error => {
         // 对响应错误做些什么
-        console.log('error', error.response) // 修改后
+        console.error('error', error.response) // 修改后
         return Promise.reject(error)
     })
 
@@ -77,7 +87,7 @@ export function getWithURL(url, params = {}) {
         httpService({
                 url: (URL + url),
                 method: 'get',
-                params: params,
+                params: { params, requestInterceptors: false }
             }).then(response => {
                 resolve(response);
             })
@@ -127,8 +137,7 @@ export function postWithURL(url, params) {
         httpService({
             url: (URL + url),
             method: 'post',
-            data: params,
-            // data: { params, requestInterceptors: false }
+            data: params
         }).then(response => {
             resolve(response);
         }).catch(error => {

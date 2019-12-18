@@ -16,6 +16,7 @@
 
 <style lang="scss" scoped>
 @import "../../assets/css/components/login/login.scss";
+@import url("../../assets/css/components/login/login.scss");
 </style>
 
 <script>

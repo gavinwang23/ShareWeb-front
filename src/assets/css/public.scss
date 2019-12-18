@@ -1,21 +1,24 @@
 html,
 body,
-#app,
-.el-container,
-.el-main,
-.el-row,
-.el-col {
+#app {
     height: 100%;
     margin: 0;
     /* 在followPage页面用到了padding为0 */
     padding: 0 !important;
 }
 
-.el-header {
+// .el-container,
+.el-main {
+    height: 100%;
+    margin: 0;
+    /* 在followPage页面用到了padding为0 */
+    padding: 0 !important;
+}
+
+.el-col .el-header {
     padding: 0px !important;
 }
 
-body,
 ul {
     padding: 0;
     margin: 0;
