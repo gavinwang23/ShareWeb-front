@@ -1,10 +1,12 @@
+html,
+body,
+#app {
+    height: auto !important;
+}
+
 .el-header {
     position: relative;
     z-index: 100;
-}
-
-.el-row {
-    // height: 400px;
 }
 
 .ulBox {
@@ -33,9 +35,6 @@
     transition: all 1s;
 }
 
-// .slide-fade-leave-active {
-//     transition: all 1s;
-// }
 .slide-fade-enter,
 .slide-fade-leave-to
 /* .slide-fade-leave-active for below version 2.1.8 */
