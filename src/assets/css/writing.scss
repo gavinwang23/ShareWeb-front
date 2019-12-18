@@ -10,33 +10,33 @@
 }
 .writing-back-button {
   background-color: #ffffff;
-  border: 1px solid #99ccff;
-  color: #99ccff;
+  border: 1px solid #409EFF;
+  color: #409EFF;
   font-size: 80%;
   border-radius: 120px;
   width: 80%;
   height: 6vh;
   margin: 10% 0px 0px 10%;
-  &:hover {border-color: rgb(204, 223, 241); border-width: 4px solid; }
+  &:hover {border-color: #409EFF; border-width: 4px solid; }
 }
 .el-main {
   padding: 0px;
 }
 .navigation-buttons-Submission,.navigation-buttons-cancel{
   background: none;
-  border-color:#99ccff;
+  border-color:#409EFF;
   margin-top:5%;
   width: 45%;
   height: 8%;
 }
 .writing-fit-button {
-  color: rgb(62, 123, 255);
+  color: #409EFF;
   width: 5%;
   height: 8%;
 }
 .el-menu-vertical-demo {
-  min-height: 86vh;
-  max-height: 86vh;
+  min-height: 85vh;
+  max-height: 85vh;
   width: 100%;
 }
 .writing-problem {
@@ -63,9 +63,9 @@
 }
 .writing-newanthology-button {
   width: 100%;
-  color: #99ccff;
+  color: black;
   text-align: left;
-  margin-left: 10%;
+  margin-left: 8%;
 }
 .writing-setup-button{
   width: 100%;

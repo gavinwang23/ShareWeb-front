@@ -11,7 +11,7 @@
                 class="el-menu-vertical-demo"
                 background-color="#ffffff"
                 text-color="#000"
-                active-text-color="rgb(238, 189, 54)"
+                active-text-color="#409EFF"
               >
                 <el-button @click="show1=true" class="writing-newanthology-button" type="text">新建文集</el-button>
                 <el-menu-item-group v-show="show1">
@@ -69,22 +69,22 @@
                   <el-popover placement="left" width="100" trigger="hover">
                     <el-switch
                       v-model="value"
-                      active-color="#13ce66"
-                      inactive-color="black"
+                      active-color="#909399"
+                      inactive-color="#409EFF"
                       active-text="夜间"
                       inactive-text="日间"
                     ></el-switch>
                     <el-switch
                       v-model="value1"
-                      active-color="#13ce66"
-                      inactive-color="black"
+                     active-color="#909399"
+                      inactive-color="#409EFF"
                       active-text="宋体"
                       inactive-text="繁体"
                     ></el-switch>
                     <el-switch
                       v-model="value2"
-                      active-color="#13ce66"
-                      inactive-color="black"
+                      active-color="#909399"
+                      inactive-color="#409EFF"
                       active-text="繁体"
                       inactive-text="简体"
                     ></el-switch>
@@ -128,7 +128,7 @@
               </el-menu-item>
             </el-menu>
           </div>
-          <wangEditor2 :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show3"></wangEditor2>
+          <wangEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show3"></wangEditor>
           <mavonEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show4"></mavonEditor>
         </el-col>
       </el-row>
@@ -166,5 +166,5 @@ export default {
     };
   }
 };
-var person = ["日记本", "随笔"];
+var list=["随笔","日记本"];
 </script>

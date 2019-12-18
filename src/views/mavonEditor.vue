@@ -8,7 +8,7 @@
 </template>
 <style  type="text/css">
 .v-note-panel{
-  height:80vh;
+  height:85vh;
 }
 
 </style>
