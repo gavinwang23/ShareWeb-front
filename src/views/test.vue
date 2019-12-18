@@ -14,9 +14,9 @@
 </template>
 
 
-<style lang="scss" scoped>
-@import "../assets/css/test.scss";
-@import "../assets/css/components/layout.scss";
+<style src="../assets/css/test.scss" lang="scss" scoped>
+</style>
+<style src="../assets/css/components/layout.scss" lang="scss" scoped>
 </style>
 
 <script>
