@@ -4,6 +4,7 @@
   </div>
 </template>
 
+
 <style lang="scss" scoped>
 @import url("./assets/css/public.scss");
 </style>

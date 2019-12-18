@@ -41,7 +41,6 @@
 $img: "../assets/picture";
 @import "../assets/css/public.scss";
 @import "../assets/css/entry.scss";
-
 @import url("../assets/css/public.scss");
 // @import url("../assets/scss/entry.scss");
 </style>

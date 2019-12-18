@@ -41,7 +41,10 @@
 
 <style lang="scss" scoped>
 @import "../assets/css/index.scss";
-@import url("../assets/css/index.scss");
+// @import url("../assets/css/index.scss");
+</style>
+<style scoped>
+/* @import url("../assets/css/index.scss"); */
 </style>
 
 <script>

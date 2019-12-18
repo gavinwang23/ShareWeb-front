@@ -9,8 +9,7 @@
       <el-main>
         <el-row type="flex" justify="center" align="middle">
           <el-col :span="18">
-            <el-col :span="1"></el-col>
-            <el-col :span="7">
+            <el-col :span="8">
               <div class="leftBox">
                 <div class="title">
                   <el-dropdown>
