@@ -10,11 +10,12 @@
       <div class="nullContentBox2" :class="{nullContentBox2Transition:loadingData}"></div>
       <div class="nullFooter"></div>
     </div>
+
   </div>
 </template>
 
 
-<style src="../assets/css/test.scss" lang="scss" scoped>
+<style src="../assets/css/test.scss" lang="scss">
 </style>
 <style src="../assets/css/components/layout.scss" lang="scss" scoped>
 </style>
@@ -27,7 +28,12 @@
 import QS from "qs";
 export default {
   mounted() {
-    window.addEventListener("scroll", this.handleScroll, true);
+    console.log("绑定事件成功")
+    onscroll=(e)=>{
+      if(document.body.offsetHeight<=(pageYOffset+innerHeight)){
+        console.log("触底")
+      }
+    }
   },
   data() {
     return {

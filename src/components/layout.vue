@@ -79,7 +79,7 @@ export default {
       //滚动条到底部的条件
       this.loadingData = true;
       this.loadingError = false;
-      if (scrollTop + windowHeight+1 >= scrollHeight-200) {
+      if (scrollTop + windowHeight >= scrollHeight-199) {
         //写后台加载数据的函数
         console.log(
           "距顶部" +

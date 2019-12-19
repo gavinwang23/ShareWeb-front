@@ -28,12 +28,6 @@ const routes = [{
             import ("../views/userCenter/analytics.vue")
     },
     {
-        path: '/wangEditor2',
-        name: 'wangEditor2',
-        component: () =>
-            import ("../components/wangEditor.vue")
-    },
-    {
         path: '/mavonEditor',
         name: 'mavonEditor',
         component: () =>
@@ -55,7 +49,7 @@ const routes = [{
         path: '/member_centre',
         name: 'memberCentre',
         component: () =>
-            import ("../views/userCenter/memberCentre.vue")
+            import ("../views/userCenter/member_centre.vue")
     },
     {
         path: '/account',
@@ -67,13 +61,13 @@ const routes = [{
         path: '/myarticle',
         name: 'MyArticle',
         component: () =>
-            import ("../views/myArticle.vue")
+            import ("../views/my_article.vue")
     },
     {
         path: '/forget_password',
         name: 'forget_password',
         component: () =>
-            import ("../views/forgetPassword.vue")
+            import ("../views/forget_password.vue")
     },
     {
         path: '/article',
@@ -85,13 +79,19 @@ const routes = [{
         path: '/follow_page',
         name: 'followPage',
         component: () =>
-            import ("../views/followPage.vue")
+            import ("../views/follow_page.vue")
     },
     {
         path: '/loginMessage',
         name: 'loginMessage',
         component: () =>
             import ("../components/login/loginMessage")
+    },
+    {
+        path: '/Collection_like',
+        name: 'Collection_like',
+        component: () =>
+            import ("../views/collection_like.vue")
     },
 
 ]
