@@ -6,13 +6,13 @@
       <router-link to="/" class="navElement imgBox">
           <img src="../../assets/picture/logo.png" height="40px" />
       </router-link>
-      <router-link to="/" class="navElement">
-        <el-menu-item index="1">关注</el-menu-item>
+      <router-link to="/follow_page" class="navElement">
+        <el-menu-item>关注</el-menu-item>
       </router-link>
       <router-link to="#" class="navElement">
         <el-menu-item index="2">下载app</el-menu-item>
       </router-link>
-      <el-menu-item index="3">
+      <el-menu-item>
         <i class="el-icon-zoom-in navIconPosition"></i>
         <el-input v-model="select" placeholder="搜索" style="width:70%"></el-input>
       </el-menu-item>

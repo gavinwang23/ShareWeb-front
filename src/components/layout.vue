@@ -20,11 +20,11 @@
               <i class="el-icon-caret-bottom"></i>
               <router-link to>{{i.articleOppose}}</router-link>
             </div>
-            <div class="articleComment articleFooterLi">
-              <i class="el-icon-chat-square"></i>
+            <!-- <div class="articleComment articleFooterLi">
+              <i class="el-icon-chat-square"></i> -->
               <!-- <router-link to>{{}}</router-link> -->
-            </div>
-            <div class="articleUser">
+            <!-- </div> -->
+            <div class="articleUser articleFooterLi">
               <router-link to>{{i.userName}}</router-link>
             </div>
           </div>
