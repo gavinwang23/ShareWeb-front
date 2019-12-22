@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div v-if="allowPage">
     <div class="headerBox">
       <myHead></myHead>
     </div>
@@ -20,6 +21,10 @@
         </el-row>
       </el-main>
     </div>
+    </div>
+    <div v-else>
+      <loginMessage></loginMessage>
+    </div>
   </div>
 </template>
 
@@ -27,15 +32,25 @@
 </style>
 
 <script>
+import cookie from"js-cookie"
 import myHead from "./../components/header/header.vue";
 import layout from "./../components/layout.vue";
+import loginMessage from "./../components/login/loginMessage"
 export default {
   components: {
     myHead,
-    layout
+    layout,
+    loginMessage
   },
   data() {
-    return {};
+    return {
+      allowPage:false,
+    };
+  },
+  created(){
+    if(cookie.get("token")){
+      this.allowPage=true;
+    }
   }
 };
 </script>
