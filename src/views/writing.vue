@@ -15,7 +15,6 @@
               >
                 <el-button @click="show1=true" class="writing-newanthology-button" type="text">新建文集</el-button>
                 <el-menu-item-group v-show="show1">
-                  <transition name="fade">
                     <div v-if="show1">
                       <el-input v-model="input" placeholder="文件集名"></el-input>
                       <el-button class="navigation-buttons-Submission" round>提交</el-button>
@@ -25,10 +24,8 @@
                         @click="show1 =false"
                       >取消</el-button>
                     </div>
-                  </transition>
                 </el-menu-item-group>
-                <el-menu-item index="2" @click="show2=true,C1=false,C2=true">
-                  随笔
+                  <ul><li class="leftlist" v-for="article in articles" :key="article" @click="show2=true,C1=false,C2=true" >{{article}}</li></ul>
                   <!-- <el-button
                       size="mini"
                       icon="el-icon-search"
@@ -36,18 +33,6 @@
                       class="writing-set-button"
                       circle
                   ></el-button>-->
-                </el-menu-item>
-                <el-menu-item index="3" @click="show2=true,C1=false,C2=true">
-                  日记本
-                  <!-- <el-button
-                      @click="visible=true"
-                      size="mini"
-                      icon="el-icon-search"
-                      class="writing-set-button"
-                      circle
-                      type="text"
-                  ></el-button>-->
-                </el-menu-item>
               </el-menu>
               <el-popover placement="top" width="160" trigger="hover">
                 <div style="text-align: right; margin: 0">
@@ -123,9 +108,10 @@
         <el-col :span="20">
           <div v-show="show2">
             <el-menu default-active="2" class="writeArticle" background-color="#ffffff">
-              <el-menu-item index="2">
+              <el-menu-item index="1">
                 <el-button type="text">新建文章</el-button>
               </el-menu-item>
+                <ul><li class="leftlist" v-for="list in list" :key="list">{{list}}</li></ul>
             </el-menu>
           </div>
           <wangEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show3"></wangEditor>
@@ -162,9 +148,15 @@ export default {
       value2: false,
       C1: true,
       C2: false,
-      editorOption: {}
+      editorOption: {},
+      articles:[
+          "日记本",   
+          "随笔",
+          ],
+      list:[
+          "第一章：嘿嘿嘿",
+          ],
     };
   }
 };
-var list=["随笔","日记本"];
 </script>

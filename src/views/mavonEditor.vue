@@ -10,6 +10,9 @@
 .v-note-panel{
   height:85vh;
 }
+.op-icon{
+margin: 6px 10px 5px 0px !important;
+}
 
 </style>
 
