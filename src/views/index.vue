@@ -39,12 +39,7 @@
   </el-container>
 </template>
 
-<style lang="scss" scoped>
-@import "../assets/css/index.scss";
-// @import url("../assets/css/index.scss");
-</style>
-<style scoped>
-/* @import url("../assets/css/index.scss"); */
+<style src="../assets/css/index.scss" lang="scss" scoped>
 </style>
 
 <script>

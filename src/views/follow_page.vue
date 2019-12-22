@@ -76,6 +76,7 @@
 </style>
 
 <script>
+import cookie from "js-cookie"
 import myHead from "./../components/header/headerBackUp.vue";
 import layout from "./../components/layout.vue";
 import loginMessage from "./../components/login/loginMessage";
@@ -92,7 +93,11 @@ export default {
       allowPage: false
     };
   },
-  created() {},
+  created() {
+    if(cookie.get("token")){
+      this.allowPage=true;
+    }
+  },
   methods: {
     changeListState(index) {
       return (this.isActive = index);
