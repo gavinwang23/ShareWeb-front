@@ -1,11 +1,12 @@
-// html,
-// body,
-// #app {
-//     height: auto;
-// }
+html,
+body,
+#app {
+    height: auto;
+}
+
 .el-header {
     position: relative;
-    z-index: 100;
+    z-index: 3;
 }
 
 .ulBox {

@@ -20,11 +20,11 @@
               <i class="el-icon-caret-bottom"></i>
               <router-link to>{{i.articleOppose}}</router-link>
             </div>
-            <div class="articleComment articleFooterLi">
-              <i class="el-icon-chat-square"></i>
-              <!-- <router-link to>{{}}</router-link> -->
-            </div>
-            <div class="articleUser">
+            <!-- <div class="articleComment articleFooterLi">
+            <i class="el-icon-chat-square"></i>-->
+            <!-- <router-link to>{{}}</router-link> -->
+            <!-- </div> -->
+            <div class="articleUser articleFooterLi">
               <router-link to>{{i.userName}}</router-link>
             </div>
           </div>
@@ -49,6 +49,7 @@
 </style>
 
 <script>
+import { request } from "http";
 var time = 0;
 export default {
   data() {
@@ -59,12 +60,33 @@ export default {
       list: []
     };
   },
+  props: {
+    indexArticle: Boolean,
+    userArticle: Boolean,
+    collectionLike: Boolean
+  },
   created() {
-    this.requestArticleData();
+    //判断哪个页面调用了layout
+    //然后为window添加滚动事件
+    this.determinePage();
     window.addEventListener("scroll", this.handleScroll, true);
   },
   methods: {
-    //有待梳理
+    //判断后调用方法发送请求
+    determinePage() {
+      if (this.indexArticle == true) {
+        console.log(1);
+        this.requestArticle();
+      } else if (this.userArticle == true) {
+        console.log(2);
+        this.requestFollowUser();
+      } else if (this.collectionLike == true) {
+        console.log(3);
+        this.requestCollectionLike();
+      }
+    },
+    //有待梳理,
+    //增加首页下拉滚动条增加文章的效果
     handleScroll() {
       //总高度
       //变量scrollTop是滚动条滚动时，距离顶部的距离
@@ -79,7 +101,7 @@ export default {
       //滚动条到底部的条件
       this.loadingData = true;
       this.loadingError = false;
-      if (scrollTop + windowHeight >= scrollHeight-199) {
+      if (scrollTop + windowHeight >= scrollHeight - 199) {
         //写后台加载数据的函数
         console.log(
           "距顶部" +
@@ -89,11 +111,11 @@ export default {
             "滚动条总高度" +
             scrollHeight
         );
-        this.requestArticleData();
+        this.determinePage();
       }
     },
-    //增加首页下拉滚动条增加文章的效果
-    requestArticleData() {
+    //请求index文章的代码
+    requestArticle() {
       console.log("发送请求");
       time++;
       let pageNo = time;
@@ -113,6 +135,14 @@ export default {
           this.loadingData = false;
           this.loadingError = true;
         });
+    },
+    //请求关注列表的代码
+    requestFollowUser() {
+      console.log("请求user");
+    },
+    //请求收藏和喜欢的代码
+    requestCollectionLike() {
+      console.log("请求collectionAndLike");
     }
   }
 };

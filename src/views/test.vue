@@ -4,6 +4,7 @@
     <!-- 测试index接口 -->
     <el-button round @click="testIndex()"></el-button>
     <el-button round @click="testAdd()"></el-button>
+    <el-button round @click="testfollowArticle()"></el-button>
     <div class="loading" v-if="loadingData">
       <div class="nullTitleBox"></div>
       <div class="nullContentBox1" :class="{nullContentBox1Transition:loadingData}"></div>
@@ -82,6 +83,14 @@ export default {
         var x = 600;
         document.getElementById("scroll").style.height = x + 100 + "px";
       }
+    },
+    testfollowArticle(){
+      let userName = "11111";
+      let params = { userName: userName };
+      this.$axios
+        .getWithURLWithToken("follower_articles/get", params)
+        .then(response => {})
+        .catch(error => {});
     }
   }
 };

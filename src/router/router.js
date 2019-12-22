@@ -88,8 +88,8 @@ const routes = [{
             import ("../components/login/loginMessage")
     },
     {
-        path: '/Collection_like',
-        name: 'Collection_like',
+        path: '/collection_like',
+        name: 'collection_like',
         component: () =>
             import ("../views/collection_like.vue")
     },

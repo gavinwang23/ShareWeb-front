@@ -64,7 +64,7 @@
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="manager">个人中心</el-dropdown-item>
-            <el-dropdown-item>收藏和喜欢</el-dropdown-item>
+            <el-dropdown-item command="collection_like">收藏和喜欢</el-dropdown-item>
             <el-dropdown-item>我的消息</el-dropdown-item>
             <el-dropdown-item>钱包</el-dropdown-item>
             <el-dropdown-item>帮助与反馈</el-dropdown-item>
@@ -144,6 +144,9 @@ export default {
           break;
         case "manager":
           this.$router.push({ name: "manager" });
+          break;
+        case "collection_like":
+          this.$router.push({ name: "collection_like" });
           break;
       }
     },

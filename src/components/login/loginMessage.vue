@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <el-dialog title="请重新登入" :visible.sync="dialogFormVisible">
+    <el-dialog title="请登入" :visible.sync="dialogFormVisible">
       <div class="loginBox">
         <login></login>
       </div>

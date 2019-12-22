@@ -4,15 +4,15 @@
       <!-- 下面注释标签中的内容不知道如何使用故先备注 -->
       <!-- @select="handleSelect" -->
       <router-link to="/" class="navElement imgBox">
-          <img src="../../assets/picture/logo.png" height="40px" />
+        <img src="../../assets/picture/logo.png" height="40px" />
       </router-link>
-      <router-link to="/" class="navElement">
-        <el-menu-item index="1">关注</el-menu-item>
+      <router-link to="/follow_page" class="navElement">
+        <el-menu-item>关注</el-menu-item>
       </router-link>
       <router-link to="#" class="navElement">
         <el-menu-item index="2">下载app</el-menu-item>
       </router-link>
-      <el-menu-item index="3">
+      <el-menu-item>
         <i class="el-icon-zoom-in navIconPosition"></i>
         <el-input v-model="select" placeholder="搜索" style="width:70%"></el-input>
       </el-menu-item>
@@ -35,7 +35,7 @@
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="manager">个人中心</el-dropdown-item>
-            <el-dropdown-item>收藏和喜欢</el-dropdown-item>
+            <el-dropdown-item command="collection_like">收藏和喜欢</el-dropdown-item>
             <el-dropdown-item>我的消息</el-dropdown-item>
             <el-dropdown-item>钱包</el-dropdown-item>
             <el-dropdown-item>帮助与反馈</el-dropdown-item>
@@ -112,6 +112,9 @@ export default {
           break;
         case "manager":
           this.$router.push({ name: "manager" });
+          break;
+        case "collection_like":
+          this.$router.push({ name: "collection_like" });
           break;
       }
     }
