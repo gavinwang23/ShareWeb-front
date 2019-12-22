@@ -29,7 +29,7 @@
         <el-row>
           <el-col :span="24">
             <div class="layoutBox">
-              <layout></layout>
+              <layout :indexArticle="true"></layout>
             </div>
           </el-col>
         </el-row>

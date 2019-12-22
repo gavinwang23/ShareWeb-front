@@ -57,7 +57,7 @@
                       <div class="info"></div>
                     </div>
                   </div>
-                  <layout></layout>
+                  <layout :userArticle="true"></layout>
                 </div>
               </el-col>
             </el-col>
