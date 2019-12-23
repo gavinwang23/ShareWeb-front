@@ -13,7 +13,6 @@
   background:#ffffff;
 }
 .w-e-toolbar{
-  width: 100%;
   flex-wrap:wrap;
   background-color: #ffffff !important;
 }
