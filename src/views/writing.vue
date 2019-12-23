@@ -129,6 +129,7 @@
 <script>
 import wangEditor from "../components/wangEditor.vue";
 import mavonEditor from "../views/mavonEditor.vue";
+import { request } from 'http';
 export default {
   components: {
     wangEditor,
@@ -157,6 +158,12 @@ export default {
           "第一章：嘿嘿嘿",
           ],
     };
+  },
+  methods:{
+    //接口尝试 新建文集
+    requestArticle(){
+      console.log("请求参数");
+    }
   }
 };
 </script>
