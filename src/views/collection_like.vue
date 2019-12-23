@@ -7,10 +7,9 @@
       <div class="mainBox">
         <el-main>
           <el-row type="flex" justify="center" align="middle">
-            <el-col :span="18">
+            <el-col :span="12">
               <div class="mainHeaderBox">
-                <h1 class="active">喜欢</h1>
-                <h1>收藏</h1>
+                <img src="../assets/picture/collection.png" width="100%">
               </div>
               <div class="mainContentBox">
                 <layout :collectionLike="true"></layout>
