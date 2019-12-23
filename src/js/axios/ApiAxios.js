@@ -21,13 +21,15 @@ httpService.interceptors.request.use(
             if (config.params.requestInterceptors == false) {
                 //重新赋值操作
                 config.params = config.params.params;
+            } else {
+                config.headers.Authorization = 'Bearer ' + Cookies.get("token");
             }
         } else if (config.method == "post") {
             if (config.data.requestInterceptors == false) {
 
+            } else {
+                config.headers.Authorization = 'Bearer ' + Cookies.get("token");
             }
-        } else {
-            config.headers.Authorization = 'Bearer ' + Cookies.get("token");
         }
         // config.headers.Authorization = 'Bearer ' + Cookies.get("token");
         // if (config.data != null && config.data.requestInterceptors == false) {

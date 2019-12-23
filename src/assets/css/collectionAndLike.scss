@@ -2,32 +2,4 @@
     height: 60px;
 }
 
-.mainBox {
-    .mainHeaderBox {
-        overflow: hidden;
-        width: 50%;
-        margin: 0 auto;
-        h1 {
-            text-align: center;
-            float: left;
-            width: 50%;
-            border-radius: 5%;
-            margin: {
-                top: 0;
-                bottom: 0;
-            }
-            padding: {
-                top: 3%;
-                bottom: 3%;
-            }
-        }
-    }
-    .active {
-        background-color: #F5F5F5;
-    }
-    .mainContentBox {
-        background-color: #F5F5F5;
-        height: auto;
-        border-radius: 3%;
-    }
-}
+.mainBox {}
