@@ -1,5 +1,5 @@
 <template>
-  <div style="overflow:auto;">
+  <div style="overflow:auto;" :class="{gray:this.$store.state.changeDayNight}">
     <ul>
       <li v-for="i in list" :key="i.title">
         <div class="articleTitleBox">

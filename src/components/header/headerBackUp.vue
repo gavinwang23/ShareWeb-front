@@ -1,6 +1,11 @@
 <template>
   <div class="myhead">
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      :class="{black:this.$store.state.changeDayNight}"
+    >
       <!-- 下面注释标签中的内容不知道如何使用故先备注 -->
       <!-- @select="handleSelect" -->
       <router-link to="/" class="navElement imgBox">
@@ -86,6 +91,7 @@
                 inactive-text="关灯"
                 active-color="#6dacf4"
                 inactive-color="#eee"
+                @change="change"
               ></el-switch>
             </el-dropdown-item>
             <el-dropdown-item>
@@ -130,6 +136,9 @@ export default {
     }
   },
   methods: {
+    change() {
+      this.$store.state.changeDayNight = !this.$store.state.changeDayNight;
+    },
     logout() {
       Cookies.remove("userName");
       Cookies.remove("token");

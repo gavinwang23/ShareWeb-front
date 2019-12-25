@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <el-container v-if="allowPage">
+  <div >
+    <el-container v-if="allowPage" >
       <el-header style="background-color: white;">
         <div class="headerBox">
           <myHead></myHead>
@@ -11,7 +11,7 @@
           <el-row type="flex" justify="center" align="middle">
             <el-col :span="18">
               <el-col :span="8">
-                <div class="leftBox">
+                <div class="leftBox" :class="{gray:this.$store.state.changeDayNight}">
                   <div class="title">
                     <el-dropdown>
                       <el-button>
@@ -47,8 +47,8 @@
                 </div>
               </el-col>
               <el-col :span="16">
-                <div class="followContent">
-                  <div class="headerBox">
+                <div class="followContent" :class="{gray:this.$store.state.changeDayNight}">
+                  <div class="headerBox" >
                     <div class="headerImage">
                       <img :src="123" height="50px;" />
                     </div>
