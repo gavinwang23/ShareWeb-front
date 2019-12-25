@@ -128,7 +128,8 @@
 <script>
 import wangEditor from "../components/wangEditor.vue";
 import mavonEditor from "../views/mavonEditor.vue";
-import { request } from 'http';
+import input from "http" 
+import { timeout } from 'q';
 export default {
   components: {
     wangEditor,
@@ -158,12 +159,5 @@ export default {
           ],
     };
   },
-  methods:{
-    //接口尝试 新建文集
-    requestArticle(){
-      console.log("请求参数");
-      let userName="11111"
-    }
-  }
 };
 </script>
