@@ -17,14 +17,14 @@
                 <el-menu-item-group v-show="newanthology">
                     <div>
                       <el-input v-model="input" placeholder="文件集名"></el-input>
-                      <el-button class="navigation-buttons-Submission" round>提交</el-button>
+                      <el-button class="navigation-buttons-Submission" @click="collectionAdd" round>提交</el-button>
                       <el-button
                         class="navigation-buttons-cancel"
                         @click="newanthology=false"
                       >取消</el-button>
                     </div>
                 </el-menu-item-group>
-                  <ul><li class="leftlist" v-for="article in articles" :key="article" @click="newarticle=true,editorlog=false,editorshow=true" >{{article}}</li></ul>
+                  <ul><li class="leftlist" v-for="collection in collection" :key="collection" @click="newarticle=true,editorlog=false,editorshow=true" >{{collection}}</li></ul>
                   <!-- <el-button
                       size="mini"
                       icon="el-icon-search"
@@ -110,7 +110,7 @@
               <el-menu-item index="1">
                 <el-button type="text">新建文章</el-button>
               </el-menu-item>
-                <ul><li class="leftlist" v-for="list in list" :key="list">{{list}}</li></ul>
+                <ul><li class="leftlist" v-for="article in article" :key="article">{{article}}</li></ul>
             </el-menu>
           </div>
           <wangEditor :class="{ wangEditorboxone:editorlog,wangEditorboxtow:editorshow}" v-show="wangEditor"></wangEditor>
@@ -128,8 +128,6 @@
 <script>
 import wangEditor from "../components/wangEditor.vue";
 import mavonEditor from "../views/mavonEditor.vue";
-import input from "http" 
-import { timeout } from 'q';
 export default {
   components: {
     wangEditor,
@@ -138,6 +136,7 @@ export default {
   data() {
     return {
       input: "",
+      collection:true,
       dialogVisible: false,
       visible: false,
       newanthology: false,
@@ -150,20 +149,51 @@ export default {
       editorlog: true,
       editorshow: false,
       editorOption: {},
-      articles:[
+      collection:[
           "日记本",   
           "随笔",
           ],
-      list:[
+      article:[
           "第一章：嘿嘿嘿",
           ],
     };
+    // var objWin; 
+    // function isOpen(writing) { 
+    // 目标页面 
+    //  var target = "pop.html?id="+writing; 
+    //  判断是否打开 
+    //  if (objWin == null || objWin.closed) { 
+    //  } else { 
+    //      objWin=true; 
+    //  } 
+    //  objWin.focus(); 
+    //  } 
+  },
+  created(){
+    this.requestcollection();
   },
   methods:{
+    //请求用户文集
+    requestcollection(){
+      console.log("请求用户文集");
+      let userName = "11111";
+      let params ={userName:userName};
+      this.$axios
+      .postWithURLWithToken("corpus/add",params)
+      .then(response =>{
+        let list=[];
+        for(let i=0;i<=list.length;i++){
+          this.list.push(collection[i]);
+        }
+      })
+      .catch(error =>{})
+    },
+    //新建文集
       collectionAdd(){
-      let params = {
+        console.log("新建文集");
+        let params = {
         userName: "11111",
-        collectionName: "",
+        collectionName: this.input,
         articleName: "",
         userId: 1,
         publicOrNot: true
@@ -172,8 +202,8 @@ export default {
         .postWithURLWithToken("corpus/add", params)
         .then(response => {
           var i;
-          for (i = 0; i < response.data.corpus.length; i++) {
-            console.log(response.data.corpus[i]);
+          for (let i= 0; i < response.data.corpus.length; i++) {
+            console.log(response.data.collection[i]);
           }
         })
         .catch(error => {});

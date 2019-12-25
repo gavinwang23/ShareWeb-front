@@ -49,7 +49,6 @@
 </style>
 
 <script>
-import { request } from "http";
 var time = 0;
 export default {
   data() {
