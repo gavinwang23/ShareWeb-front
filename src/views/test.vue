@@ -48,7 +48,7 @@ export default {
       let params = {
         userName: "11111",
         collectionName: "第1次web测试",
-        articleName: "xixixix嘎嘎",
+        // articleName: "xixixix嘎嘎",
         userId: 1,
         publicOrNot: true
       };
