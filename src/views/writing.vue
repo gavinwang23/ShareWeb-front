@@ -159,5 +159,25 @@ export default {
           ],
     };
   },
+  methods:{
+      collectionAdd(){
+      let params = {
+        userName: "11111",
+        collectionName: "",
+        articleName: "",
+        userId: 1,
+        publicOrNot: true
+      };
+      this.$axios
+        .postWithURLWithToken("corpus/add", params)
+        .then(response => {
+          var i;
+          for (i = 0; i < response.data.corpus.length; i++) {
+            console.log(response.data.corpus[i]);
+          }
+        })
+        .catch(error => {});
+    },
+  }
 };
 </script>
