@@ -13,22 +13,18 @@
                 text-color="#000"
                 active-text-color="#409EFF"
               >
-                <el-button @click="show1=true" class="writing-newanthology-button" type="text">新建文集</el-button>
-                <el-menu-item-group v-show="show1">
-                  <transition name="fade">
-                    <div v-if="show1">
+                <el-button @click="newanthology=true" class="writing-newanthology-button" type="text">新建文集</el-button>
+                <el-menu-item-group v-show="newanthology">
+                    <div>
                       <el-input v-model="input" placeholder="文件集名"></el-input>
                       <el-button class="navigation-buttons-Submission" round>提交</el-button>
                       <el-button
-                        v-if="show1"
                         class="navigation-buttons-cancel"
-                        @click="show1 =false"
+                        @click="newanthology=false"
                       >取消</el-button>
                     </div>
-                  </transition>
                 </el-menu-item-group>
-                <el-menu-item index="2" @click="show2=true,C1=false,C2=true">
-                  随笔
+                  <ul><li class="leftlist" v-for="article in articles" :key="article" @click="newarticle=true,editorlog=false,editorshow=true" >{{article}}</li></ul>
                   <!-- <el-button
                       size="mini"
                       icon="el-icon-search"
@@ -36,53 +32,41 @@
                       class="writing-set-button"
                       circle
                   ></el-button>-->
-                </el-menu-item>
-                <el-menu-item index="3" @click="show2=true,C1=false,C2=true">
-                  日记本
-                  <!-- <el-button
-                      @click="visible=true"
-                      size="mini"
-                      icon="el-icon-search"
-                      class="writing-set-button"
-                      circle
-                      type="text"
-                  ></el-button>-->
-                </el-menu-item>
               </el-menu>
               <el-popover placement="top" width="160" trigger="hover">
                 <div style="text-align: right; margin: 0">
                   <el-popover placement="left" width="100" trigger="hover">
-                    <el-button type="text" size="mini" @click="show3=true,show4=false">富文本编辑器</el-button>
+                    <el-button type="text" size="mini" @click="wangEditor=true,markDown=false">富文本编辑器</el-button>
                     <el-button
                       type="text"
                       class="writing-see-button"
                       size="mini"
-                      @click="show3=false,show4=true"
+                      @click="wangEditor=false,markDown=true"
                     >MarkDown文本编辑器</el-button>
                     <el-button
                       type="text"
                       class="writing-setup-button"
                       size="mini"
                       slot="reference"
-                    >默认编辑器</el-button>
+                    >选择编辑器</el-button>
                   </el-popover>
                   <el-popover placement="left" width="100" trigger="hover">
                     <el-switch
-                      v-model="value"
+                      v-model="daynight"
                       active-color="#909399"
                       inactive-color="#409EFF"
                       active-text="夜间"
                       inactive-text="日间"
                     ></el-switch>
                     <el-switch
-                      v-model="value1"
+                      v-model="typeface"
                      active-color="#909399"
                       inactive-color="#409EFF"
                       active-text="宋体"
                       inactive-text="繁体"
                     ></el-switch>
                     <el-switch
-                      v-model="value2"
+                      v-model="Simplified"
                       active-color="#909399"
                       inactive-color="#409EFF"
                       active-text="繁体"
@@ -121,15 +105,16 @@
           </div>
         </el-col>
         <el-col :span="20">
-          <div v-show="show2">
+          <div v-show="newarticle">
             <el-menu default-active="2" class="writeArticle" background-color="#ffffff">
-              <el-menu-item index="2">
+              <el-menu-item index="1">
                 <el-button type="text">新建文章</el-button>
               </el-menu-item>
+                <ul><li class="leftlist" v-for="list in list" :key="list">{{list}}</li></ul>
             </el-menu>
           </div>
-          <wangEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show3"></wangEditor>
-          <mavonEditor :class="{ wangEditorboxone:C1,wangEditorboxtow: C2}" v-show="show4"></mavonEditor>
+          <wangEditor :class="{ wangEditorboxone:editorlog,wangEditorboxtow:editorshow}" v-show="wangEditor"></wangEditor>
+          <mavonEditor :class="{ wangEditorboxone:editorlog,wangEditorboxtow:editorshow}" v-show="markDown"></mavonEditor>
         </el-col>
       </el-row>
     </div>
@@ -143,6 +128,8 @@
 <script>
 import wangEditor from "../components/wangEditor.vue";
 import mavonEditor from "../views/mavonEditor.vue";
+import input from "http" 
+import { timeout } from 'q';
 export default {
   components: {
     wangEditor,
@@ -153,18 +140,24 @@ export default {
       input: "",
       dialogVisible: false,
       visible: false,
-      show1: false,
-      show2: false,
-      show3: true,
-      show4: false,
-      value: false,
-      value1: false,
-      value2: false,
-      C1: true,
-      C2: false,
-      editorOption: {}
+      newanthology: false,
+      newarticle: false,
+      wangEditor: true,
+      markDown: false,
+      daynight: false,
+      typeface: false,
+      Simplified: false,
+      editorlog: true,
+      editorshow: false,
+      editorOption: {},
+      articles:[
+          "日记本",   
+          "随笔",
+          ],
+      list:[
+          "第一章：嘿嘿嘿",
+          ],
     };
-  }
+  },
 };
-var list=["随笔","日记本"];
 </script>

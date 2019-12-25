@@ -9,11 +9,10 @@
     height: 88vh !important;
 }
 .w-e-menu{
-  margin-right:3.5vh;
+  margin-right:2vw;
   background:#ffffff;
 }
 .w-e-toolbar{
-  width: 100%;
   flex-wrap:wrap;
   background-color: #ffffff !important;
 }

@@ -93,7 +93,12 @@ const routes = [{
         component: () =>
             import ("../views/collection_like.vue")
     },
-
+    {
+        path: '/aboutus',
+        name: 'aboutus',
+        component: () =>
+            import ("../views/aboutus.vue")
+    },
 ]
 
 const router = new VueRouter({

@@ -139,6 +139,22 @@ export default {
     //请求关注列表的代码
     requestFollowUser() {
       console.log("请求user");
+      let userName = "11111";
+      let param ={ userName:userName};
+      this.$axios
+      .getWithURLWithToken("follower_articles/get",param)
+      .then(response =>{
+        let list =[];
+        list = response.data.list;
+        this.loadingData =false;
+        for(let i=0;i<list.length;i++){
+          this.list.push(list[i]);
+        }
+      })
+      .catch(error =>{
+        this.loadingData =false;
+        this.loadingError =true;
+      })
     },
     //请求收藏和喜欢的代码
     requestCollectionLike() {
