@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="main">
-      <mavon-editor v-model="value" @imgAdd="imgAdd" />
+      <mavon-editor v-model="value" @imgAdd="imgAdd" :subfield="false"/>
     </div>
     <el-button @click="getContent"></el-button>
   </div>
@@ -22,6 +22,9 @@ export default {
     return {
       value: ""
     };
+  },
+  created(){
+
   },
   methods: {
     getContent() {

@@ -163,7 +163,7 @@ export default {
       collectionAdd(){
       let params = {
         userName: "11111",
-        collectionName: "第1次web测试",
+        collectionName: "",
         articleName: "",
         userId: 1,
         publicOrNot: true

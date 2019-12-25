@@ -38,7 +38,7 @@
   </el-container>
 </template>
 
-<style src="../assets/css/Entry.scss" lang="scss" scoped></style>
+<style src="../assets/css/entry.scss" lang="scss" scoped></style>
 
 <script>
 import login from "./../components/login/login";
