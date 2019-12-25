@@ -81,7 +81,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
               <el-switch
-                v-model="value1"
+                v-model="checkDayNight"
                 active-text="开灯"
                 inactive-text="关灯"
                 active-color="#6dacf4"
@@ -89,8 +89,9 @@
               ></el-switch>
             </el-dropdown-item>
             <el-dropdown-item>
+              <!-- v-model中的表示切换简体繁体 -->
               <el-switch
-                v-model="value2"
+                v-model="checkSimpleComplicated"
                 active-text="简体"
                 inactive-text="繁体"
                 active-color="#6dacf4"
@@ -114,8 +115,8 @@ export default {
   data: function() {
     return {
       activeIndex: "0",
-      value1: true,
-      value2: true,
+      checkDayNight: true,
+      checkSimpleComplicated: true,
       select: "",
       userHead:
         "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
@@ -130,10 +131,8 @@ export default {
   },
   methods: {
     logout() {
-      window.console.log("function play");
       Cookies.remove("userName");
       Cookies.remove("token");
-      // console.log();
     },
     handleCommand(userPointe) {
       window.console.log(userPointe);
