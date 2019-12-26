@@ -208,6 +208,12 @@ export default {
         })
         .catch(error => {});
     },
+    //请求文章
+    requestarticle(){
+      console.log("请求文集下文章");
+      let userName="11111";
+      let collectionName=this.collection[i],
+    },
   }
 };
 </script>
