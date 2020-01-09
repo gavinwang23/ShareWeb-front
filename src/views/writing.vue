@@ -235,6 +235,7 @@ export default {
     requestarticle(){
       console.log("请求文章");
       let userName="11111";
+<<<<<<< HEAD
       let collectionName=this.collection;
       let params={ userName:userName, collectionName:collectionName};
       this.$axios
@@ -246,6 +247,9 @@ export default {
         }
       })
       .catch(error=>{})
+=======
+      let collectionName=this.collection[i];
+>>>>>>> 462ff180d2664a9eb4cf100dde59e7864f46f550
     },
   }
 };
