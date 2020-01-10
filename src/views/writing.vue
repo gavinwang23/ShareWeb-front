@@ -24,7 +24,7 @@
                       >取消</el-button>
                     </div>
                 </el-menu-item-group>
-                  <ul><li class="leftlist" v-for="collection in collection" :key="collection" @click="newarticle=true,editorlog=false,editorshow=true" >{{collection}}</li></ul>
+                  <ul><li class="leftlist" v-for="collection in collection" :key="collection" @click="newarticle=true,editorlog=false,editorshow=true">{{collection}}</li></ul>
                   <!-- <el-button
                       size="mini"
                       icon="el-icon-search"
@@ -107,7 +107,7 @@
         <el-col :span="20">
           <div v-show="newarticle">
             <el-menu default-active="2" class="writeArticle" background-color="#ffffff">
-              <el-menu-item index="1">
+              <el-menu-item index="1" @click="articleAdd">
                 <el-button type="text">新建文章</el-button>
               </el-menu-item>
                 <ul><li class="leftlist" v-for="article in article" :key="article">{{article}}</li></ul>
@@ -171,8 +171,15 @@ export default {
   },
   created(){
     this.requestcollection();
+    this.determinePage();
   },
   methods:{
+    //请求文章判断
+    determinePage(){
+      if (this.newarticle==true) {
+        this.requestarticle();
+      }
+    },
     //请求用户文集
     requestcollection(){
       console.log("请求用户文集");
@@ -208,11 +215,41 @@ export default {
         })
         .catch(error => {});
     },
+    //新建文章
+      articleAdd(){
+      console.log("新建文章");
+      let userName="11111";
+      let articleTitele="time";
+      let params ={ userName:userName, articleTitele:articleTitele };
+      this.$axios
+      .postWithURLWithToken("article/get",params)
+      .then(response =>{
+        let list=[];
+        for(let i=0;i<list.length;i++){
+          this.list.push(article[i]);
+        }
+      })
+      .catch(error =>{})
+    },
     //请求文章
     requestarticle(){
-      console.log("请求文集下文章");
+      console.log("请求文章");
       let userName="11111";
+<<<<<<< HEAD
+      let collectionName=this.collection;
+      let params={ userName:userName, collectionName:collectionName};
+      this.$axios
+      .postWithURLWithToken("article/get",params)
+      ,then(response =>{
+        let list =[];
+        for(let i=0;i<list.length;i++){
+          this.list.push(article[i]);
+        }
+      })
+      .catch(error=>{})
+=======
       let collectionName=this.collection[i];
+>>>>>>> 462ff180d2664a9eb4cf100dde59e7864f46f550
     },
   }
 };
