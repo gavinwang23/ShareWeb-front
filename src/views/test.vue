@@ -3,14 +3,12 @@
     <el-button round @click="test()"></el-button>
     <el-button round @click="testAdd()"></el-button>
     <el-button round @click="testfollowArticle()"></el-button>
+    <el-button @click="send()">发消息</el-button>
   </div>
 </template>
 
-
-<style src="../assets/css/test.scss" lang="scss">
-</style>
-<style src="../assets/css/components/layout.scss" lang="scss" scoped>
-</style>
+<style src="../assets/css/test.scss" lang="scss"></style>
+<style src="../assets/css/components/layout.scss" lang="scss" scoped></style>
 
 <script>
 /* 
@@ -26,8 +24,14 @@ export default {
         { num: 1, content: "这是第一个内容" },
         { num: 2, content: "这是第二个内容" },
         { num: 3, content: "这是第三个内容" }
-      ]
+      ],
+      path: "ws://192.168.0.200:8005/qrCodePage/ID=1/refreshTime=5",
+      socket: ""
     };
+  },
+  mounted() {
+    // 初始化
+    this.init();
   },
   methods: {
     test() {
@@ -70,6 +74,39 @@ export default {
         .then(response => {})
         .catch(error => {});
     }
+  },
+  init() {
+    if (typeof WebSocket === "undefined") {
+      alert("您的浏览器不支持socket");
+    } else {
+      // 实例化socket
+      this.socket = new WebSocket(this.path);
+      // 监听socket连接
+      this.socket.onopen = this.open;
+      // 监听socket错误信息
+      this.socket.onerror = this.error;
+      // 监听socket消息
+      this.socket.onmessage = this.getMessage;
+    }
+  },
+  open() {
+    console.log("socket连接成功");
+  },
+  error() {
+    console.log("连接错误");
+  },
+  getMessage(msg) {
+    console.log(msg.data);
+  },
+  send() {
+    this.socket.send(params);
+  },
+  close() {
+    console.log("socket已经关闭");
+  },
+  destroyed() {
+    // 销毁监听
+    this.socket.onclose = this.close;
   }
 };
 </script>

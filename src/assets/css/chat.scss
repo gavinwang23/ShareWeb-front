@@ -1,0 +1,84 @@
+.el-row {
+  width: 100%;
+}
+.userFollowList {
+  background-color: gray;
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.userHead {
+  float: left;
+  margin: {
+    top: 5%;
+    left: 5%;
+  }
+}
+
+.userName {
+  float: left;
+  margin: {
+    top: 10%;
+    left: 10%;
+  }
+}
+.inputBox {
+  text-align: center;
+  .el-input {
+    width: 90%;
+    margin-top: 5%;
+    input {
+      background-color: gray !important;
+    }
+  }
+}
+.userChatList {
+  ul {
+    margin-top: 5%;
+    li {
+      list-style: none;
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 10px;
+      background-color: gainsboro;
+      position: relative;
+      img {
+        margin-left: 5%;
+      }
+      .time {
+        font-size: 14px;
+        position: absolute;
+        top: 30%;
+        left: 80%;
+      }
+    }
+  }
+}
+.followedUser {
+  font-size: 14px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.chatContent {
+  background-color: wheat;
+  height: 100vh;
+  .chatContentHead {
+    text-align: center;
+    font-size: 18px;
+    padding: {
+      top: 3%;
+      bottom: 3%;
+    }
+    border-bottom: 1px solid black;
+  }
+}
+.chatHistory{
+    padding: {
+        top:5%;
+        left:5%;
+    }
+    height:65vh;
+    background-color: gray;
+}

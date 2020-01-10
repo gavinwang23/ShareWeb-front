@@ -94,6 +94,12 @@ const routes = [{
             import ("../views/collection_like.vue")
     },
     {
+        path: '/chat',
+        name: 'chat',
+        component: () =>
+            import ("../views/chat.vue")
+    },
+    {
         path: '/aboutus',
         name: 'aboutus',
         component: () =>
