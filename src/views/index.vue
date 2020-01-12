@@ -17,7 +17,7 @@
     <el-container>
       <el-main>
         <el-row>
-          <el-col :span="1">&nbsp;</el-col>
+          <el-col :span="1"><br/></el-col>
           <!-- 开始中间的正文内容 -->
           <el-col :span="22" class="mainBox">
             <div class="rotationChartBox">
@@ -29,7 +29,7 @@
         <el-row>
           <el-col :span="24">
             <div class="layoutBox">
-              <layout></layout>
+              <layout :indexArticle="true"></layout>
             </div>
           </el-col>
         </el-row>
@@ -39,8 +39,7 @@
   </el-container>
 </template>
 
-<style lang="scss" scoped>
-@import "../assets/css/index.scss";
+<style src="../assets/css/index.scss" lang="scss" scoped>
 </style>
 
 <script>

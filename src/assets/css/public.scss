@@ -1,21 +1,33 @@
+/* 切换白天和黑夜 */
+
+.black {
+    background-color: #666!important;
+}
+
+.gray {
+    background-color: #555 !important;
+}
+
 html,
 body,
-#app,
-.el-container,
-.el-main,
-.el-row,
-.el-col {
+#app {
+    margin: 0;
+    /* 在followPage页面用到了padding为0 */
+    padding: 0 !important;
+}
+
+// .el-container,
+.el-main {
     height: 100%;
     margin: 0;
     /* 在followPage页面用到了padding为0 */
     padding: 0 !important;
 }
 
-.el-header {
+.el-col .el-header {
     padding: 0px !important;
 }
 
-body,
 ul {
     padding: 0;
     margin: 0;

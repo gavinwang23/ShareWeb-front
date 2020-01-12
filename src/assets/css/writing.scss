@@ -3,40 +3,40 @@
   color: rgb(212, 212, 212);
 }
 .bg-purple-left {
-  background: #f1f0f0;
+  background: #ffffff;
 }
 .row-bg {
   background-color: #f9fafc;
 }
 .writing-back-button {
-  background-color: #f1f0f0;
-  border: 1px solid #99ccff;
-  color: #99ccff;
+  background-color: #ffffff;
+  border: 1px solid #409EFF;
+  color:black;
   font-size: 80%;
   border-radius: 120px;
   width: 80%;
   height: 6vh;
   margin: 10% 0px 0px 10%;
-  &:hover {border-color: rgb(204, 223, 241); border-width: 4px solid; }
+  &:hover {border-color: rgb(129, 184, 240); color:#409EFF; border-width: 4px solid; }
 }
 .el-main {
   padding: 0px;
 }
 .navigation-buttons-Submission,.navigation-buttons-cancel{
   background: none;
-  border-color:#99ccff;
+  border-color:#409EFF;
   margin-top:5%;
   width: 45%;
   height: 8%;
 }
 .writing-fit-button {
-  color: rgb(62, 123, 255);
+  color: #409EFF;
   width: 5%;
   height: 8%;
 }
 .el-menu-vertical-demo {
-  min-height: 86.5vh;
-  max-height: 86.5vh;
+  min-height: 85vh;
+  max-height: 85vh;
   width: 100%;
 }
 .writing-problem {
@@ -63,25 +63,40 @@
 }
 .writing-newanthology-button {
   width: 100%;
-  color: #99ccff;
+  color: black;
   text-align: left;
-  margin-left: 10%;
+  margin-left: 8%;
 }
 .writing-setup-button{
   width: 100%;
   margin-left:auto;
 }
 .writeArticle{
-  width: 40vh;
+  width: 19.5vw;
   height: 100vh;
   float: left;
 }
 .wangEditorboxtow{
-  width: 127vh;
+  width: 76%;
   float: left;
 }
 .wangEditorboxone{
-  width: 169vh;
+  width: 100%;
   float: left;
-  margin-right:1.5%;
+}
+.leftlist{
+  height: 4vh;
+  margin-left:1vw;
+  list-style-type: none;
+  color: #000;
+  padding-top:2vh;
+  &:hover{background:rgb(165, 165, 165);cursor:pointer;}
+}
+.leftlistclick{
+  height: 4vh;
+  margin-left:1vw;
+  list-style-type: none;
+  color: #000;
+  padding-top:2vh;
+  background:rgb(165, 165, 165);
 }

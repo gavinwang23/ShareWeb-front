@@ -28,18 +28,6 @@ const routes = [{
             import ("../views/userCenter/analytics.vue")
     },
     {
-        path: '/wangEditor',
-        name: 'wangEditor',
-        component: () =>
-            import ("../components/wangEditor.vue")
-    },
-    {
-        path: '/wangEditor2',
-        name: 'wangEditor2',
-        component: () =>
-            import ("../views/wangEditor2.vue")
-    },
-    {
         path: '/mavonEditor',
         name: 'mavonEditor',
         component: () =>
@@ -61,7 +49,7 @@ const routes = [{
         path: '/member_centre',
         name: 'memberCentre',
         component: () =>
-            import ("../views/userCenter/memberCentre.vue")
+            import ("../views/userCenter/member_centre.vue")
     },
     {
         path: '/account',
@@ -70,22 +58,16 @@ const routes = [{
             import ("../views/userCenter/account.vue")
     },
     {
-        path: '/writeArticle',
-        name: 'writeArticle',
-        component: () =>
-            import ("../views/writeArticle.vue")
-    },
-    {
         path: '/myarticle',
         name: 'MyArticle',
         component: () =>
-            import ("../views/myArticle.vue")
+            import ("../views/my_article.vue")
     },
     {
         path: '/forget_password',
         name: 'forget_password',
         component: () =>
-            import ("../views/forgetPassword.vue")
+            import ("../views/forget_password.vue")
     },
     {
         path: '/article',
@@ -94,18 +76,35 @@ const routes = [{
             import ("../views/article.vue")
     },
     {
-        path: '/test2',
-        name: 'test2',
-        component: () =>
-            import ("../views/test2.vue")
-    },
-    {
         path: '/follow_page',
         name: 'followPage',
         component: () =>
-            import ("../views/followPage.vue")
+            import ("../views/follow_page.vue")
     },
-
+    {
+        path: '/loginMessage',
+        name: 'loginMessage',
+        component: () =>
+            import ("../components/login/loginMessage")
+    },
+    {
+        path: '/collection_like',
+        name: 'collection_like',
+        component: () =>
+            import ("../views/collection_like.vue")
+    },
+    {
+        path: '/chat',
+        name: 'chat',
+        component: () =>
+            import ("../views/chat.vue")
+    },
+    {
+        path: '/aboutus',
+        name: 'aboutus',
+        component: () =>
+            import ("../views/aboutus.vue")
+    },
 ]
 
 const router = new VueRouter({

@@ -1,14 +1,18 @@
+html,
+body,
+#app,
 .el-col {
-    height: 100%;
+    height: 100vh;
 }
 
 .el-main {
-    // padding: 1%;
+    padding: 0;
     background-color: #b8e5f8;
 }
 
 .el-row {
-    background: url("#{$img}/background.png");
+    // background: url("#{$img}/day.png");
+    background: url("./../picture/day.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -19,7 +23,8 @@
 
 .imgBox {
     width: 50%;
-    background: url('#{$img}/logo.png');
+    // background: url('#{$img}/logo.png');
+    background: url("./../picture/logo.png");
     background-repeat: no-repeat;
     background-size: contain;
     height: 100%;

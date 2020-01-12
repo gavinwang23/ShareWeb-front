@@ -1,8 +1,9 @@
 <template>
-  <div id="app" @mousewheel="test">
-    <router-view/>
+  <div id="app" @mousewheel="test" :class="{black:this.$store.state.changeDayNight}">
+    <router-view />
   </div>
 </template>
+
 
 <style lang="scss" scoped>
 @import url("./assets/css/public.scss");
@@ -12,7 +13,7 @@
 
 <script>
 export default {
-  methods:{
+  methods: {
     test(e) {
       /* 组件渐变效果相关代码 
       if (e.deltaY > 0) {
@@ -27,5 +28,5 @@ export default {
       */
     }
   }
-}
+};
 </script>

@@ -1,23 +1,14 @@
 <template>
   <div class="container">
     <el-button round @click="test()"></el-button>
-    <!-- 测试index接口 -->
-    <el-button round @click="testIndex()"></el-button>
     <el-button round @click="testAdd()"></el-button>
-    <div class="loading" v-if="loadingData">
-      <div class="nullTitleBox"></div>
-      <div class="nullContentBox1" :class="{nullContentBox1Transition:loadingData}"></div>
-      <div class="nullContentBox2" :class="{nullContentBox2Transition:loadingData}"></div>
-      <div class="nullFooter"></div>
-    </div>
+    <el-button round @click="testfollowArticle()"></el-button>
+    <el-button @click="send()">发消息</el-button>
   </div>
 </template>
 
-
-<style lang="scss" scoped>
-@import "../assets/css/test.scss";
-@import "../assets/css/components/layout.scss";
-</style>
+<style src="../assets/css/test.scss" lang="scss"></style>
+<style src="../assets/css/components/layout.scss" lang="scss" scoped></style>
 
 <script>
 /* 
@@ -26,9 +17,6 @@
  */
 import QS from "qs";
 export default {
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll, true);
-  },
   data() {
     return {
       loadingData: true,
@@ -36,15 +24,40 @@ export default {
         { num: 1, content: "这是第一个内容" },
         { num: 2, content: "这是第二个内容" },
         { num: 3, content: "这是第三个内容" }
-      ]
+      ],
+      path: "ws://192.168.0.200:8005/qrCodePage/ID=1/refreshTime=5",
+      socket: ""
     };
+  },
+  mounted() {
+    // 初始化
+    this.init();
   },
   methods: {
     test() {
-      let userName = "11111";
-      let params = { userName: userName };
+      // let userName = "11111";
+      // let params = { userName: userName };
+      // this.$axios
+      //   .getWithURLWithToken("corpus/get", params)
+      //   .then(response => {})
+      //   .catch(error => {});
+      let SECparams = { userName: "11111" };
+      console.log("发送请求");
       this.$axios
-        .getWithURLWithToken("corpus/get", params)
+        .getWithURLWithToken("corpus/get", SECparams)
+        .then(response => {})
+        .catch(error => {});
+    },
+    testAdd() {
+      let params = {
+        userName: "11111",
+        collectionName: "第1次web测试",
+        // articleName: "xixixix嘎嘎",
+        userId: 1,
+        publicOrNot: true
+      };
+      this.$axios
+        .postWithURLWithToken("corpus/add", params)
         .then(response => {
           var i;
           for (i = 0; i < response.data.corpus.length; i++) {
@@ -53,30 +66,47 @@ export default {
         })
         .catch(error => {});
     },
-    testIndex() {
-      let params = { pageNo: 1, pageSize: 20 };
-
+    testfollowArticle() {
+      let userName = "11111";
+      let params = { userName: userName };
       this.$axios
-        .getWithURLWithToken("index/articles/get", params)
+        .getWithURLWithToken("follower_articles/get", params)
         .then(response => {})
         .catch(error => {});
     },
-    testAdd() {},
-    handleScroll(e) {
-      //变量scrollTop是滚动条滚动时，距离顶部的距离
-      var scrollTop = e.target.scrollTop;
-      //变量windowHeight是可视区的高度
-      var windowHeight = e.target.clientHeight;
-      //变量scrollHeight是滚动条的总高度
-      var scrollHeight = e.target.scrollHeight;
-      //滚动条到底部的条件
-      if (scrollTop + windowHeight == scrollHeight) {
-        //写后台加载数据的函数
-        //          	console.log("距顶部"+scrollTop+"可视区高度"+windowHeight+"滚动条总高度"+scrollHeight);
-        var x = 600;
-        document.getElementById("scroll").style.height = x + 100 + "px";
+    init() {
+      if (typeof WebSocket === "undefined") {
+        alert("您的浏览器不支持socket");
+      } else {
+        // 实例化socket
+        this.socket = new WebSocket(this.path);
+        // 监听socket连接
+        this.socket.onopen = this.open;
+        // 监听socket错误信息
+        this.socket.onerror = this.error;
+        // 监听socket消息
+        this.socket.onmessage = this.getMessage;
       }
+    },
+    open() {
+      console.log("socket连接成功");
+    },
+    error() {
+      console.log("连接错误");
+    },
+    getMessage(msg) {
+      console.log(msg.data);
+    },
+    send() {
+      this.socket.send(params);
+    },
+    close() {
+      console.log("socket已经关闭");
     }
+  },
+  destroyed() {
+    // 销毁监听
+    this.socket.onclose = this.close;
   }
 };
 </script>

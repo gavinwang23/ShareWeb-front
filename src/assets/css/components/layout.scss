@@ -41,20 +41,14 @@ ul {
 
 .layoutFooter {
     font-size: 16px;
-    margin-top: 5%;
+    overflow: hidden;
+    position: relative;
+    top: 60%;
     a {
         text-decoration: none;
     }
     .articleFooterLi {
         margin-right: 1%;
-    }
-    .articleUp {
-        float: left;
-    }
-    .articleDown {
-        float: left;
-    }
-    .articleComment {
         float: left;
     }
 }

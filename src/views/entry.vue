@@ -37,14 +37,9 @@
     </el-main>
   </el-container>
 </template>
-<style lang="scss" scoped>
-$img: "../assets/picture";
-@import "../assets/css/public.scss";
-@import "../assets/css/entry.scss";
 
-@import url("../assets/css/public.scss");
-// @import url("../assets/scss/entry.scss");
-</style>
+<style src="../assets/css/Entry.scss" lang="scss" scoped></style>
+
 <script>
 import login from "./../components/login/login";
 import register from "./../components/register";
@@ -56,13 +51,13 @@ export default {
   },
   data() {
     return {
-      switchProperty:true,
+      switchProperty: true
     };
   },
   created() {
     if (this.$route.params.entryData != undefined) {
       this.switchProperty = this.$route.params.entryData;
-    }else{
+    } else {
       this.switchProperty = true;
     }
   },

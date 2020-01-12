@@ -6,10 +6,13 @@
   <el-main>
     <div class="article_main">
       <h1>{{title}}</h1>
+<<<<<<< HEAD
       <div class="article_info">
         <div class="author_name">小明</div>
         <div class="abc">小小</div>
       </div>
+=======
+>>>>>>> ac5bc8825c23108e2a1878c26a9702981d964df4
       <div v-html="content">{{content}}</div>
     </div>
     <div class="comment_area">
@@ -34,6 +37,20 @@
   export default {
     components: {
       myHead,
+    },
+    created(){
+      let userName="11111";
+      let articleTitle = "123123"
+      let params = {userName:userName,articleTitle:articleTitle};
+      this.$axios
+        .getWithURL('article/get',params)
+        .then(response=>{
+          this.content = response.data.list[0].articleContent;
+          this.title = response.data.list[0].articleTitle;
+        })
+        .catch(error=>{
+          console.error(error)
+        })
     },
     data(){
       return{

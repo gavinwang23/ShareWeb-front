@@ -3,7 +3,7 @@
     margin: 5%;
     padding: 5%;
     border-radius: 15px;
-    height: 80%;
+    height: 80vh;
     overflow: auto;
     .title {
         padding-bottom: 5%;
@@ -61,6 +61,7 @@
     height: 80%;
     margin: 2% auto;
     padding: 2%;
+    box-sizing: border-box;
     border-radius: 15px;
     color: black;
     .headerBox {
@@ -76,7 +77,7 @@
         .headerInfo {
             background-color: blue;
             float: right;
-            width: 70%;
+            width: 60%;
             height: 100px;
         }
     }
