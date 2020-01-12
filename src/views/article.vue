@@ -5,15 +5,8 @@
   </el-header>
   <el-main>
     <div class="article_main">
-      <h1>{{title}}</h1>
-<<<<<<< HEAD
-      <div class="article_info">
-        <div class="author_name">小明</div>
-        <div class="abc">小小</div>
-      </div>
-=======
->>>>>>> ac5bc8825c23108e2a1878c26a9702981d964df4
-      <div v-html="content">{{content}}</div>
+      <h1>{{$route.params.title}}</h1>
+      <div v-html="content">{{$route.params.content}}</div>
     </div>
     <div class="comment_area">
       <h1>评论区</h1>
