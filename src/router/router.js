@@ -70,7 +70,7 @@ const routes = [{
             import ("../views/forget_password.vue")
     },
     {
-        path: '/article:article',
+        path: '/article/:userName/:articleTitle',
         name: 'article',
         component: () =>
             import ("../views/article.vue")

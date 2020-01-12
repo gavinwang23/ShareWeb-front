@@ -9,8 +9,8 @@ const httpService = axios.create({
 // const URL = "http://localhost:8888/api/";
 // const URL = "http://192.168.1.140:8888/api/"
 // const URL = "http://192.168.1.106:8888/api/"
-// const URL = "http://192.168.1.124:8888/api/"
-const URL = "http://192.168.1.100:8888/api/"
+const URL = "http://123.57.52.18:8888/api/"
+// const URL = "http://192.168.1.100:8888/api/"
 
 
 // request拦截器
