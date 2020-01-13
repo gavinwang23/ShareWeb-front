@@ -229,7 +229,6 @@ export default {
       console.log("请求文章");
       let userName="11111";
       let collectionName=this.collection[i];
-<<<<<<< HEAD
       let params ={userName:userName,collectionname:collectionName};
       this.$axios
       .postWithURLWithToken("article/get",params)
@@ -240,8 +239,6 @@ export default {
         }
       })
       .catch(error=>{})
-=======
->>>>>>> 76ef0ddc73a88fc04ec0644370142e14d8edb898
     },
   }
 };
