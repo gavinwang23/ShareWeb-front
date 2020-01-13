@@ -70,7 +70,7 @@ const routes = [{
             import ("../views/forget_password.vue")
     },
     {
-        path: '/article',
+        path: '/article/:userName/:articleTitle',
         name: 'article',
         component: () =>
             import ("../views/article.vue")
@@ -92,6 +92,12 @@ const routes = [{
         name: 'collection_like',
         component: () =>
             import ("../views/collection_like.vue")
+    },
+    {
+        path: '/chat',
+        name: 'chat',
+        component: () =>
+            import ("../views/chat.vue")
     },
     {
         path: '/aboutus',

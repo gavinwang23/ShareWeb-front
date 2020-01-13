@@ -3,7 +3,7 @@
     <ul>
       <li v-for="i in list" :key="i.title">
         <div class="articleTitleBox">
-          <router-link to>
+          <router-link :to="{name:'article',params:{userName:i.userName,article:i.articleTitle}}">
             <b>{{i.articleTitle}}</b>
           </router-link>
         </div>
@@ -14,18 +14,18 @@
           <div class="layoutFooter">
             <div class="articleUp articleFooterLi">
               <i class="el-icon-caret-top"></i>
-              <router-link to>{{i.articleAdmire}}</router-link>
+              <router-link :to="{name:'article',params:{userName:i.userName,article:i.articleTitle}}">{{i.articleAdmire}}</router-link>
             </div>
             <div class="articleDown articleFooterLi">
               <i class="el-icon-caret-bottom"></i>
-              <router-link to>{{i.articleOppose}}</router-link>
+              <router-link :to="{name:'article',params:{userName:i.userName,article:i.articleTitle}}">{{i.articleOppose}}</router-link>
             </div>
             <!-- <div class="articleComment articleFooterLi">
             <i class="el-icon-chat-square"></i>-->
             <!-- <router-link to>{{}}</router-link> -->
             <!-- </div> -->
             <div class="articleUser articleFooterLi">
-              <router-link to>{{i.userName}}</router-link>
+              <router-link :to="{name:'article',params:{userName:i.userName,article:i.articleTitle}}">{{i.userName}}</router-link>
             </div>
           </div>
         </div>
