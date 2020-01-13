@@ -24,7 +24,7 @@
                       >取消</el-button>
                     </div>
                 </el-menu-item-group>
-                  <ul><li class="leftlist" v-for="collection in collection" :key="collection" @click="newarticle=true,editorlog=false,editorshow=true">{{collection}}</li></ul>
+                  <ul><li class="leftlist" v-for="collection in collection" :key="collection" @click="newarticle=true,editorlog=false,editorshow=true,requestarticle()">{{collection}}</li></ul>
                   <!-- <el-button
                       size="mini"
                       icon="el-icon-search"
@@ -171,15 +171,8 @@ export default {
   },
   created(){
     this.requestcollection();
-    this.determinePage();
   },
   methods:{
-    //请求文章判断
-    determinePage(){
-      if (this.newarticle==true) {
-        this.requestarticle();
-      }
-    },
     //请求用户文集
     requestcollection(){
       console.log("请求用户文集");
@@ -235,21 +228,17 @@ export default {
     requestarticle(){
       console.log("请求文章");
       let userName="11111";
-<<<<<<< HEAD
-      let collectionName=this.collection;
-      let params={ userName:userName, collectionName:collectionName};
+      let collectionName=this.collection[i];
+      let params ={userName:userName,collectionname:collectionName};
       this.$axios
       .postWithURLWithToken("article/get",params)
-      ,then(response =>{
-        let list =[];
+      .then(response =>{
+        let list=[];
         for(let i=0;i<list.length;i++){
           this.list.push(article[i]);
         }
       })
       .catch(error=>{})
-=======
-      let collectionName=this.collection[i];
->>>>>>> 462ff180d2664a9eb4cf100dde59e7864f46f550
     },
   }
 };
