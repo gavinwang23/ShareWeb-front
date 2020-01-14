@@ -26,3 +26,19 @@
     background-color: yellow;
     display: inline;
 }
+.submissionbutton{
+    margin: 0vh 0vw 0vh 51vw;
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    height:4vh;
+    width: 4vw;
+    border-radius:8px;
+    &:hover{cursor:pointer;}
+}
+.textareabox{
+    width:55vw;  
+}
+.input{
+    min-height: 12vh;
+}
