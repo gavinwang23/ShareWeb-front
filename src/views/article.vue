@@ -9,9 +9,9 @@
         <div v-html="content"></div>
         <el-button class="buttonstyle">赞</el-button>
         <el-button class="buttonstyle">踩</el-button>
-        <el-button class="buttonstyle" @click="translate=true,hide=true">评论</el-button>
-        <el-button class="buttonstyle">分享</el-button>
-        <el-button class="buttonstyle">感兴趣</el-button>
+        <el-button  @click="translate=true,hide=true">评论</el-button>
+        <el-button >分享</el-button>
+        <el-button >感兴趣</el-button>
         <el-popover width="5vw" trigger="click">
           <div>
             <el-button>不感兴趣</el-button>
