@@ -7,24 +7,25 @@
       <div class="article_main">weixi
         <h1>{{ title }}</h1>
         <div v-html="content"></div>
-        <el-button ></el-button>
-        <el-button ></el-button>
-        <el-button  @click="translate=true,hide=true"></el-button>
-        <el-button >分享</el-button>
-        <el-button >感兴趣</el-button>
+        <el-button class="articlebutton"><img src="../assets/icon/good.png" style="height:35%;width:35%">赞同</el-button>
+        <el-button class="bedbutton"><img src="../assets/icon/bed.png" style="height:110%;width:50%"></el-button>
+        <el-button class="articlebutton" @click="translate=true,hide=true"><img src="../assets/icon/comment.png" style="height:40%;width:40%;">评论</el-button>
+        <el-button class="articlebutton"><img src="../assets/icon/share.png" style="height:35%;width:35%;">分享</el-button>
+        <el-button class="articlebutton" ><img src="../assets/icon/like.png" style="height:35%;width:35%">喜欢</el-button>
         <el-popover width="5vw" trigger="click">
           <div>
-            <el-button>不感兴趣</el-button>
-            <el-button>举报</el-button>
+            <el-button class="articlebutton">不感兴趣</el-button>
+            <el-button class="articlebutton">举报</el-button>
           </div>
-          <el-button slot="reference">更多</el-button>
+          <el-button slot="reference" class="morebutton"><img src="../assets/icon/more.png" style="height:40%;width:40%"></el-button>
         </el-popover>
         <el-button v-show="hide" @click="translate=false,hide=false" class="hidebutton">收起评论</el-button>
       </div>
       <div v-show="translate" class="comment_area">
         <h1>评论区</h1>
         <div class="input">
-          <textarea class="textareabox" @focus="submissionbutton=true" @blur="submissionbutton=fasle"></textarea>
+          <!-- <textarea class="textareabox" @focus="submissionbutton=true" @blur="submissionbutton=fasle"></textarea> -->
+          <wangEditor></wangEditor>
           <button class="submissionbutton" v-show="submissionbutton">发布</button>
         </div>
       </div>
@@ -36,11 +37,11 @@
 <style lang="scss" scoped>
 @import "../assets/css/manager.scss";
 @import "../assets/css/article.scss";
-@import "../assets/comment-icon/iconfont.css";
 </style>
 
 <script>
 import myHead from "./../components/header/header.vue";
+import wangEditor from "../components/wangEditor.vue";
 export default {
   components: {
     myHead

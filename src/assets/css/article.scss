@@ -36,21 +36,29 @@
     border-radius:8px;
     &:hover{cursor:pointer;}
 }
-.textareabox{
-    width:55vw;  
-}
 .input{
     min-height: 12vh;
 }
-.buttonstyle{
+.articlebutton{
+    width:5vw;
     border: none;
-    color: #1E90FF;
-    font-size: 80%;
-    width: 4vw;
-    margin-right:0.5vw;
+}
+.bedbutton{
+    width:5vw;
+    height:5vh;
+    border: none;
+    margin-top:1%;
+}
+.morebutton{
+    width:5vw;
+    border: none;
+    margin-left:1%;
 }
 .hidebutton{
     border: none;
-    color: #1E90FF;
-    margin-left: 15vw;
+    margin-left:15vw;
+}
+.wangEditor{
+    height:29vh;
+    width: 30vw;
 }
