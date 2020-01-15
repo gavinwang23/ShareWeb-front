@@ -4,12 +4,12 @@
       <myHead></myHead>
     </el-header>
     <el-main>
-      <div class="article_main">
+      <div class="article_main">weixi
         <h1>{{ title }}</h1>
         <div v-html="content"></div>
-        <el-button class="buttonstyle">赞</el-button>
-        <el-button class="buttonstyle">踩</el-button>
-        <el-button  @click="translate=true,hide=true">评论</el-button>
+        <el-button ></el-button>
+        <el-button ></el-button>
+        <el-button  @click="translate=true,hide=true"></el-button>
         <el-button >分享</el-button>
         <el-button >感兴趣</el-button>
         <el-popover width="5vw" trigger="click">
@@ -36,6 +36,7 @@
 <style lang="scss" scoped>
 @import "../assets/css/manager.scss";
 @import "../assets/css/article.scss";
+@import "../assets/comment-icon/iconfont.css";
 </style>
 
 <script>
