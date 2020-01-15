@@ -17,7 +17,7 @@
             <el-button>不感兴趣</el-button>
             <el-button>举报</el-button>
           </div>
-          <el-button class="buttonstyle" slot="reference">更多</el-button>
+          <el-button slot="reference">更多</el-button>
         </el-popover>
         <el-button v-show="hide" @click="translate=false,hide=false" class="hidebutton">收起评论</el-button>
       </div>
