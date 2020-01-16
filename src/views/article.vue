@@ -48,7 +48,7 @@ export default {
   },
   created() {
     let userName = this.$route.params.userName;
-    let articleTitle = this.$route.params.articleTitle;
+    let articleTitle = this.$route.params.article;
     let params = { userName: userName, articleTitle: articleTitle };
     this.$axios
       .getWithURLWithToken("article/get", params)
