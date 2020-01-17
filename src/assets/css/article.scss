@@ -58,7 +58,32 @@
     border: none;
     margin-left:15vw;
 }
-.wangEditor{
-    height:29vh;
-    width: 30vw;
+.wangEditorbox{
+    width: 58.5vw;
+}
+.commentarea{
+    border-bottom:double;
+    margin-bottom:2px;
+    border-radius:1px;
+    border-color: rgb(153, 153, 153);
+}
+.notcomment{
+    font-size:30px;
+    color: rgb(122, 122, 122);
+    margin-left:25vw;
+}
+.username{
+    font-size:100%;
+    color:black;
+}
+.commentcontent{
+    font-size:80%;
+    width:50vw;
+    margin:0px 0px 0px 3vw;
+    word-wrap:break-word;
+}
+.commentgood{
+    height:5vh;
+    width:5vw;
+    border:none;
 }

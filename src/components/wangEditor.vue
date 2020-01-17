@@ -1,13 +1,13 @@
 <template>
     <div>
-        <div id="editorElem" ref="editor" style="text-align:left"></div>
-        <Button shape="circle" type="primary" v-on:click="getContent">submit</Button>
+        <div id="div1" ref="editor" :style="{height:height}"></div>
+        <Button shape="circle" type="primary" v-on:click="getContent" style="margin-top:8.5vh">{{message}}</Button>
     </div>
 </template>
 <style type="text/css">
-.w-e-text-container{
-    height: 88vh !important;
-}
+  .w-e-text-container{
+    height:inherit !important;
+}  
 .w-e-menu{
   margin-right:2vw;
   background:#ffffff;
@@ -30,11 +30,23 @@ import { white } from 'color-name'
             C2:false,
         }
       },
+      props:["height","message"],
+      // created(){
+      //   this.commentpage();
+      // },
       methods: {
         getContent: function () { 
             console.log(this.editorContent) //获取富文本内容
             this.editor.txt.clear()  //清空富文本的内容
-        }
+        },
+        // commentpage(){
+        //   if (editor == comment) {
+        //      editor.config.menus = [ 'bold',
+        // 'underline',
+        // 'italic',
+        // 'strikethrough',]
+        //   }
+        // }
       },
      mounted() {
         // var editor = new E('#editorElem')
