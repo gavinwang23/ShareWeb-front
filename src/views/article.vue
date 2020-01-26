@@ -4,11 +4,11 @@
       <myHead></myHead>
     </el-header>
     <el-main>
-      <div class="article_main">weixi
+      <div class="article_main">
         <h1>{{ title }}</h1>
         <div v-html="content"></div>
         <el-button class="articlebutton"><img src="../assets/icon/good.png" style="height:35%;width:35%">赞同</el-button>
-        <el-button class="bedbutton"><img src="../assets/icon/bed.png" style="height:110%;width:50%"></el-button>
+        <el-button class="bedbutton" style="padding-top:15px"><img src="../assets/icon/bed.png" style="height:130%;width:50%;margin-top:-15px;"></el-button>
         <el-button class="articlebutton" @click="translate=true,hide=true"><img src="../assets/icon/comment.png" style="height:40%;width:40%;">评论</el-button>
         <el-button class="articlebutton"><img src="../assets/icon/share.png" style="height:35%;width:35%;">分享</el-button>
         <el-button class="articlebutton" ><img src="../assets/icon/like.png" style="height:35%;width:35%">喜欢</el-button>
@@ -19,14 +19,14 @@
           </div>
           <el-button slot="reference" class="morebutton"><img src="../assets/icon/more.png" style="height:40%;width:40%"></el-button>
         </el-popover>
-        <el-button v-show="hide" @click="translate=false,hide=false" class="hidebutton">收起评论</el-button>
+        <el-button v-show="hide" @click="translate=false,hide=false,callingmethod()" class="hidebutton">收起评论</el-button>
       </div>
       <div v-show="translate" class="comment_area">
         <h1>评论区</h1>
+        <commentbar ref="comment"></commentbar>
         <div class="input">
           <!-- <textarea class="textareabox" @focus="submissionbutton=true" @blur="submissionbutton=fasle"></textarea> -->
-          <wangEditor></wangEditor>
-          <button class="submissionbutton" v-show="submissionbutton">发布</button>
+          <wangEditor height="20vh" message="发布" editor="comment" class="wangEditorbox" @focus="submissionbutton=true" @blur="submissionbutton=fasle"></wangEditor>
         </div>
       </div>
     </el-main>
@@ -42,9 +42,12 @@
 <script>
 import myHead from "./../components/header/header.vue";
 import wangEditor from "../components/wangEditor.vue";
+import commentbar from "../components/commentbar.vue"
 export default {
   components: {
-    myHead
+    myHead,
+    wangEditor,
+    commentbar
   },
   created() {
     let userName = this.$route.params.userName;
@@ -66,7 +69,7 @@ export default {
         '<h3>很久很久以前</h3> <p>有个补碗匠叫赵光义。赵光义是补碗匠中的高手。</p> <img src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=ac04969241a98226accc2375ebebd264/cb8065380cd79123d01d8093af345982b3b78053.jpg"><p>这天，赵光义挑着工具担子，刚走进一条胡同，便被一个人拽进一处院子里。这个人叫王直，他...</p>',
       submissionbutton:false, 
       translate:false,
-      hide:false,   
+      hide:false,
     };
   },
   methods: {
@@ -84,6 +87,9 @@ export default {
     //     })
     //     .catch(error => {});
     // },
+    callingmethod(){
+       this.$refs.comment.havecomment("");
+    }
   }
 };
 </script>
