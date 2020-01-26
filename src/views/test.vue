@@ -3,6 +3,7 @@
     <el-button round @click="test()"></el-button>
     <el-button round @click="testAdd()"></el-button>
     <el-button round @click="testfollowArticle()"></el-button>
+    <el-button round @click="commentAdd()"></el-button>
     <el-button @click="send()">发消息</el-button>
   </div>
 </template>
@@ -71,6 +72,15 @@ export default {
       let params = { userName: userName };
       this.$axios
         .getWithURLWithToken("follower_articles/get", params)
+        .then(response => {})
+        .catch(error => {});
+    },
+    commentAdd() {
+      let params ={
+articleTitle:"gaga"
+      }
+      this.$axios
+        .getWithURLWithToken("comment/get", params)
         .then(response => {})
         .catch(error => {});
     },
