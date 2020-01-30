@@ -16,10 +16,11 @@
            </ul>
         </div>
     <!-- 加载时显示 -->
-         <div v-if="commentloding" v-loading="loading" element-loading-text="拼命加载中" class="loadingbox"></div>
+        <div v-if="commentloding" v-loading="loading" element-loading-text="拼命加载中" class="loadingbox"></div>
         <img v-if="commenterror" src="../assets/icon/lodingfail.png" style="height:12vh;width:6vw;margin-left:26vw"><div v-show="commenterror" class="notcomment">加载失败</div>
         <img v-if="notcomment" src="../assets/icon/notcomment.png" style="height:12vh;width:6vw;margin-left:25vw"><div v-show="notcomment" class="notcomment">暂无评论</div>
     </div>
+    
 </template>
 <style lang="scss" scoped>
 @import "../assets/css/components/commentbar.scss";
@@ -48,18 +49,24 @@ export default {
         notcomment:false,
         };
     },
-    props:[],
+    props:["title"],
     created(){
         this.requestcomment();
     },
     methods:{
-        //请求评论的接口
+        //请求评论
         requestcomment(){
             console.log("请求评论")
+            let articleTitle = this.title;
+            let param ={articleTitle:articleTitle};
             this.$axios
-            .getWithURL("", param)
+            .getWithURL("comments/get", param)
             .then(response=>{
-
+                let list=[];
+                for(let i=0;i<list.length;i++){
+                    this.list.push(list[i]);
+                }
+                this.havecomment();
             })
             .catch(error=>{
                 this.commentloding = false;

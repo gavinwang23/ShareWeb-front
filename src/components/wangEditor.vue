@@ -1,7 +1,8 @@
 <template>
     <div>
         <div id="div1" ref="editor" :style="{height:height}"></div>
-        <Button shape="circle" type="primary" v-on:click="getContent" style="margin-top:8.5vh">{{message}}</Button>
+        <Button v-show="write" shape="circle" type="primary" @click="getContent" style="margin-top:8.5vh">{{title}}</Button>
+        <Button v-show="comment" shape="circle" type="primary" @click="getContent,commentadd()" style="margin-top:8.5vh">{{message}}</Button>
     </div>
 </template>
 <style type="text/css">
@@ -27,17 +28,18 @@ import { white } from 'color-name'
             editor: '',
             editorContent: '',
             C1:true,
-            C2:false,
+            C2:false,      
         }
       },
-      props:["height","message"],
+      props:["height","message","write","comment","title"],
       // created(){
-      //   this.commentpage();
-      // },
+      //    this.comment();
+      //  },
       methods: {
         getContent: function () { 
             console.log(this.editorContent) //获取富文本内容
             this.editor.txt.clear()  //清空富文本的内容
+            var html = editor.$txt.html;
         },
         // commentpage(){
         //   if (editor == comment) {
@@ -47,6 +49,21 @@ import { white } from 'color-name'
         // 'strikethrough',]
         //   }
         // }
+       //增加评论
+        commentadd(){
+          console.log("增加评论")
+          let articletitle = this.title;
+          let comment = this.html;
+          let param ={articletitle:articletitle , comment:comment}
+          this.$axios
+          .getWithURLWithToken("comment/add",param)
+          .then(response=>{
+            this.$emit('good');
+          })
+          .catch(error=>{
+            this.$emit('error');
+          })
+        },
       },
      mounted() {
         // var editor = new E('#editorElem')
@@ -62,6 +79,7 @@ import { white } from 'color-name'
         }
         this.editor.customConfig.zIndex = 1;
         this.editor.create()
-      }
+      },
+  
   }
 </script>

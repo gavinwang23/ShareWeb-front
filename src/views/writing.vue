@@ -113,7 +113,7 @@
                 <ul><li class="leftlist" v-for="article in article" :key="article">{{article}}</li></ul>
             </el-menu>
           </div>
-          <wangEditor height="88vh" message="submit" :class="{ wangEditorboxone:editorlog,wangEditorboxtow:editorshow}" v-show="wangEditor"></wangEditor>
+          <wangEditor write="true" height="88vh" message="submit" :class="{ wangEditorboxone:editorlog,wangEditorboxtow:editorshow}" v-show="wangEditor"></wangEditor>
           <mavonEditor :class="{ wangEditorboxone:editorlog,wangEditorboxtow:editorshow}" v-show="markDown"></mavonEditor>
         </el-col>
       </el-row>

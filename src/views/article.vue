@@ -19,14 +19,14 @@
           </div>
           <el-button slot="reference" class="morebutton"><img src="../assets/icon/more.png" style="height:40%;width:40%"></el-button>
         </el-popover>
-        <el-button v-show="hide" @click="translate=false,hide=false,callingmethod()" class="hidebutton">收起评论</el-button>
+        <el-button v-show="hide" @click="translate=false,hide=false,tips()" class="hidebutton">收起评论</el-button>
       </div>
       <div v-show="translate" class="comment_area">
         <h1>评论区</h1>
-        <commentbar ref="comment"></commentbar>
+        <commentbar :title="title" ref="comment"></commentbar>
         <div class="input">
           <!-- <textarea class="textareabox" @focus="submissionbutton=true" @blur="submissionbutton=fasle"></textarea> -->
-          <wangEditor height="20vh" message="发布" editor="comment" class="wangEditorbox" @focus="submissionbutton=true" @blur="submissionbutton=fasle"></wangEditor>
+          <wangEditor @error="tips()" @good="comment" :title="title" comment="true" height="20vh" message="发布" class="wangEditorbox" @focus="submissionbutton=true" @blur="submissionbutton=fasle"></wangEditor>
         </div>
       </div>
     </el-main>
@@ -87,9 +87,12 @@ export default {
     //     })
     //     .catch(error => {});
     // },
-    callingmethod(){
-       this.$refs.comment.havecomment("");
-    }
+      comment() {
+        this.$refs.comment.requestcomment("");
+      },
+      tips(){
+        this.$message.error('评论失败')
+      },
   }
 };
 </script>
